@@ -383,46 +383,19 @@
   .partners__list a:hover::after{transform:scaleX(1)}
   .partners__list .sep{font-family:var(--f-mono);opacity:.4;font-size:14px}
 
-  /* Why TPRC — HBA striped layout */
-  .why{padding:clamp(96px,12vw,180px) var(--pad-x);background:var(--paper-warm)}
-  .why > *{max-width:1320px;margin-left:auto;margin-right:auto}
-  .why__head{text-align:center;margin-bottom:100px}
-  .why__head h2{font-family:var(--f-script);font-style:normal;font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1.15;margin-top:10px;letter-spacing:.005em}
-  .why__grid{display:grid;gap:clamp(64px,9vw,140px)}
-  .vow{display:grid;grid-template-columns:5fr 1fr 5fr;gap:0;align-items:center}
-  .vow figure{aspect-ratio:5/6;overflow:hidden;background:var(--pearl);margin:0;grid-column:1}
-  .vow figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
-  .vow:hover figure img{transform:scale(1.04)}
-  .vow__text{grid-column:3}
-  .vow:nth-child(even) figure{grid-column:3}
-  .vow:nth-child(even) .vow__text{grid-column:1;grid-row:1}
-  .vow h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--driftwood);margin-bottom:20px}
-  .vow h4{font-family:var(--f-script);font-style:normal;font-weight:400;font-size:clamp(32px,3.8vw,54px);line-height:1.15;margin-bottom:22px;letter-spacing:.005em}
-  .vow p{font-size:16px;line-height:1.7;opacity:.85;max-width:46ch}
-  @media (max-width:780px){
-    .vow{grid-template-columns:1fr;gap:28px}
-    .vow figure,.vow:nth-child(even) figure,.vow__text,.vow:nth-child(even) .vow__text{grid-column:1;grid-row:auto}
-  }
-
-  /* Vows closing — KPI strip + CTA after Three Vows */
-  .vows-close{
-    margin-top:clamp(80px,10vw,160px);
-    padding-top:clamp(56px,6vw,90px);
-    border-top:1px solid var(--rule);
-    text-align:center;
-  }
-  .vows-close .eyebrow{font-family:var(--f-script);font-size:clamp(22px,2.6vw,38px);letter-spacing:.01em;text-transform:none;color:var(--ink);margin-bottom:42px;line-height:1}
-  .vows-close__kpis{display:flex;align-items:center;justify-content:center;gap:clamp(28px,4vw,72px);flex-wrap:wrap;margin-bottom:48px}
-  .vows-close__kpi{text-align:center;min-width:160px}
-  .vows-close__kpi .num{font-family:var(--f-display);font-weight:300;font-style:italic;font-size:clamp(36px,4.4vw,64px);line-height:.95;letter-spacing:-.02em;color:var(--slate);display:block}
-  .vows-close__kpi .num .unit{font-size:.32em;letter-spacing:.04em;display:inline-block;margin-left:.1em;vertical-align:.7em;opacity:.7;font-style:normal}
-  .vows-close__kpi .cap{margin-top:8px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--driftwood)}
-  .vows-close__sep{width:1px;height:42px;background:var(--rule);align-self:center}
-  .vows-close__cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--ink);transition:gap .4s var(--ease)}
-  .vows-close__cta:hover{gap:18px}
-  @media(max-width:780px){
-    .vows-close__sep{display:none}
-    .vows-close__kpis{flex-direction:column;gap:36px}
+  /* Invest photo strip — three vows imagery moved here in v3.11 */
+  .invest-strip{max-width:1100px;margin:0 auto 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
+  .invest-strip__fig{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--pearl);margin:0}
+  .invest-strip__fig img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+  .invest-strip__fig:hover img{transform:scale(1.05)}
+  .invest-strip__fig figcaption{position:absolute;left:18px;right:18px;bottom:18px;color:#fff;display:flex;flex-direction:column;gap:6px;text-shadow:0 1px 18px rgba(0,0,0,.55)}
+  .invest-strip__fig figcaption::before{content:"";position:absolute;left:-18px;right:-18px;bottom:-18px;top:-30px;background:linear-gradient(180deg,transparent 0,rgba(20,18,15,.55) 90%);z-index:-1;pointer-events:none}
+  .invest-strip__fig figcaption .rn{font-family:var(--f-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.85}
+  .invest-strip__fig figcaption .rt{font-family:var(--f-display);font-style:italic;font-weight:300;font-size:clamp(15px,1.4vw,18px);line-height:1.35}
+  .invest-strip__fig figcaption .rt em{font-style:normal;font-weight:400}
+  @media (max-width:760px){
+    .invest-strip{grid-template-columns:1fr;gap:12px}
+    .invest-strip__fig{aspect-ratio:16/10}
   }
 
   /* Manifesto — closing brand statement */
@@ -665,7 +638,6 @@
     <a href="#in-preparation">In Preparation</a>
     <a href="#invest">Invest</a>
     <a href="#partners">Partners</a>
-    <a href="#about">About</a>
   </div>
   <div style="display:flex;gap:18px;align-items:center">
     <span class="topbar__lang">EN&nbsp;·&nbsp;<a href="#" style="opacity:.5">CS</a></span>
@@ -825,6 +797,22 @@
       <p class="invest-tool__caveat">Net yield modeled at 70 % occupancy = 9–13 % p.a. (operator fee, OPEX, replacement reserve and tax deducted). Sliders show the midpoint range; full per-unit pro forma on request. Capital gain assumes +30 % over 5 years — midpoint of the Bali Home Immo / Bukit Vista consensus forecast of +45–80 % for Canggu through 2030. Not a guarantee.</p>
     </div>
 
+    <!-- Photo strip — three vows imagery, moved from removed Why section -->
+    <div class="invest-strip">
+      <figure class="invest-strip__fig">
+        <img src="https://pauly-ceo.github.io/ananta-villas-assets/render-facade.jpg" alt="Ananta Villas — cliff facade in Desa Kutuh, Nusa Dua" loading="lazy">
+        <figcaption><span class="rn">I · The place</span><span class="rt">Cliffs of Bukit, rice fields of Canggu — architecture designed <em>for</em> the place.</span></figcaption>
+      </figure>
+      <figure class="invest-strip__fig">
+        <img src="https://pauly-ceo.github.io/ananta-canggu-assets/render-bedroom.jpg" alt="Ananta Canggu — bedroom interior" loading="lazy">
+        <figcaption><span class="rn">II · The owner</span><span class="rt">Operator-run end to end. One team designs the unit, signs the deed, runs the booking.</span></figcaption>
+      </figure>
+      <figure class="invest-strip__fig">
+        <img src="https://pauly-ceo.github.io/ananta-canggu-assets/render-lounge.jpg" alt="Ananta Canggu — lounge" loading="lazy">
+        <figcaption><span class="rn">III · The guest</span><span class="rt">Something extra in every stay — a story, a ritual, a quiet corner worth returning to.</span></figcaption>
+      </figure>
+    </div>
+
     <!-- TANDEM 1 — Why now + 10-yr ROI chart -->
     <div class="invest-tandem">
       <div class="invest-tandem__story">
@@ -948,40 +936,7 @@
 
 <!-- Stay section removed in v3.2 -->
 
-<!-- WHY / THREE VOWS — now right after Method -->
-<section class="why" id="about">
-  <div class="why__head">
-    <div class="eyebrow">Three vows</div>
-    <h2>Three vows — to the place, the owner, the guest.</h2>
-  </div>
-  <div class="why__grid">
-    <div class="vow">
-      <figure><img src="https://pauly-ceo.github.io/ananta-villas-assets/render-facade.jpg" alt="Ananta Villas — cliff facade" loading="lazy"></figure>
-      <div class="vow__text">
-        <h3>I · To the place</h3>
-        <h4>Originality from the genius of place.</h4>
-        <p>Ananta lives where it was born — the cliffs of Bukit, the rice fields of Canggu. We work with architects who design <em>for</em> the place, not against it: open air, monsoon-ready, walkable from beach to villa.</p>
-      </div>
-    </div>
-    <div class="vow">
-      <figure><img src="https://pauly-ceo.github.io/ananta-canggu-assets/render-bedroom.jpg" alt="Ananta Canggu — bedroom interior" loading="lazy"></figure>
-      <div class="vow__text">
-        <h3>II · To the owner</h3>
-        <h4>Long-term durability and yield.</h4>
-        <p>Operator-run end to end. Same team designs the unit, signs the deed, and runs the booking — net yield 9–13% p.a. on a 70% year-round occupancy model. One contract, one number to call.</p>
-      </div>
-    </div>
-    <div class="vow">
-      <figure><img src="https://pauly-ceo.github.io/ananta-canggu-assets/render-lounge.jpg" alt="Ananta Canggu — lounge" loading="lazy"></figure>
-      <div class="vow__text">
-        <h3>III · To the guest</h3>
-        <h4>Something extra in every stay.</h4>
-        <p>Resorts that offer guests something more — a story, a ritual, a quiet corner — that's worth coming back for. The kind of detail that turns a stay into a memory.</p>
-      </div>
-    </div>
-  </div>
-
-</section>
+<!-- Three vows removed in v3.11 — imagery moved to Invest as photo strip -->
 
 <!-- PARTNERS — interactive world map -->
 <section class="partners" id="partners">
