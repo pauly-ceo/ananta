@@ -627,6 +627,100 @@
     .partner-row__link{margin-top:6px;align-self:start}
   }
 
+  /* L14 — Booking velocity ticker */
+  .vel-ticker{max-width:1100px;margin:0 auto;padding:22px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--driftwood)}
+  .vel-ticker__dot{width:8px;height:8px;border-radius:50%;background:#C9A87C;box-shadow:0 0 0 0 rgba(201,168,124,.7);animation:velPulse 1.8s ease-out infinite;flex:none}
+  .vel-ticker__sep{opacity:.45}
+  .vel-ticker strong{color:var(--ink);font-weight:500}
+  @keyframes velPulse{
+    0%{box-shadow:0 0 0 0 rgba(201,168,124,.65)}
+    70%{box-shadow:0 0 0 10px rgba(201,168,124,0)}
+    100%{box-shadow:0 0 0 0 rgba(201,168,124,0)}
+  }
+  @media(max-width:760px){
+    .vel-ticker{font-size:9.5px;letter-spacing:.16em;gap:12px;padding:18px 8px}
+    .vel-ticker__sep{display:none}
+  }
+
+  /* L2 — 3 tenant pillars (stacked list inside tandem visual) */
+  .pillars{display:flex;flex-direction:column}
+  .pillar{padding:18px 0;border-bottom:1px solid var(--rule)}
+  .pillar:first-child{padding-top:2px}
+  .pillar:last-child{border-bottom:0;padding-bottom:2px}
+  .pillar__head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .pillar__num{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;color:var(--driftwood);font-weight:500}
+  .pillar__title{font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-weight:500}
+  .pillar__body{font-size:14.5px;line-height:1.65;color:var(--driftwood);padding-left:30px}
+
+  /* L3 — Monthly statement mockup */
+  .statement{font-family:var(--f-mono);font-size:13px;line-height:1.75;color:var(--ink);background:transparent;padding:4px 0}
+  .statement__hd{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--driftwood);margin-bottom:14px}
+  .statement__line{display:flex;justify-content:space-between;align-items:baseline}
+  .statement__line .k{color:var(--driftwood);font-size:12.5px;letter-spacing:.04em}
+  .statement__line .v{color:var(--ink);font-variant-numeric:tabular-nums}
+  .statement__line.is-neg .v{color:var(--driftwood)}
+  .statement__sep{border-top:1px dashed var(--rule);margin:8px 0;height:0}
+  .statement__line.is-net{padding:6px 8px;margin:0 -8px;background:rgba(201,168,124,.10);border-left:2px solid #C9A87C}
+  .statement__line.is-net .k{color:var(--ink);font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:11.5px}
+  .statement__line.is-net .v{color:#9F7A3F;font-weight:500}
+  .statement__foot{font-size:11.5px;color:var(--driftwood);letter-spacing:.06em}
+
+  /* L10 — Day timeline (6 rhythms) */
+  .rhythms{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative}
+  .rhythms::before{content:"";position:absolute;left:8px;right:8px;top:18px;height:1px;background:var(--rule);z-index:0}
+  .rhythm{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+  .rhythm__dot{width:14px;height:14px;border-radius:50%;background:var(--paper-warm);border:1.5px solid #C9A87C;margin-top:11px}
+  .rhythm__time{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;color:var(--driftwood);margin-top:4px}
+  .rhythm__name{font-family:var(--f-display);font-size:14px;font-style:italic;color:var(--ink);line-height:1.2}
+  .rhythm__desc{font-size:11.5px;color:var(--driftwood);line-height:1.45;padding:0 2px}
+  @media(max-width:760px){
+    .rhythms{grid-template-columns:1fr 1fr;gap:18px 14px}
+    .rhythms::before{display:none}
+    .rhythm{align-items:flex-start;text-align:left}
+    .rhythm__dot{margin-top:0;margin-bottom:2px}
+  }
+
+  /* L15 — Owner portal dashboard mockup */
+  .portal{background:#FAF7F0;border:1px solid var(--rule);padding:16px;display:flex;flex-direction:column;gap:14px}
+  .portal__bar{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--rule);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--driftwood)}
+  .portal__bar strong{color:var(--ink);letter-spacing:.22em}
+  .portal__online{display:inline-flex;align-items:center;gap:6px}
+  .portal__online::before{content:"";width:7px;height:7px;border-radius:50%;background:#7FB069;box-shadow:0 0 0 0 rgba(127,176,105,.6);animation:velPulse 2s ease-out infinite}
+  .portal__kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .portal__kpi{padding:12px;border:1px solid var(--rule);background:var(--paper-warm)}
+  .portal__kpi .lbl{font-family:var(--f-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--driftwood);margin-bottom:6px;line-height:1.4}
+  .portal__kpi .val{font-family:var(--f-display);font-style:italic;font-size:22px;color:var(--ink);line-height:1}
+  .portal__kpi .val small{font-size:.55em;color:var(--driftwood);font-family:var(--f-mono);font-style:normal;letter-spacing:.04em;margin-left:3px}
+  .portal__chart{display:flex;flex-direction:column;gap:8px;padding:10px 4px 6px}
+  .portal__chart-lbl{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--driftwood);margin-bottom:2px}
+  .portal__bars{display:flex;align-items:flex-end;gap:6px;height:72px}
+  .portal__bars i{flex:1;background:#C9A87C;opacity:.85;display:block;transition:opacity .2s}
+  .portal__bars i:hover{opacity:1}
+  .portal__xax{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:9px;color:var(--driftwood);letter-spacing:.08em;margin-top:2px}
+  @media(max-width:760px){
+    .portal__kpis{grid-template-columns:1fr;gap:8px}
+    .portal__kpi{display:flex;justify-content:space-between;align-items:baseline;padding:10px 12px}
+    .portal__kpi .lbl{margin-bottom:0}
+  }
+
+  /* L13 — Pipeline teaser (centered) */
+  .pipeline{max-width:720px;margin:0 auto;padding:clamp(80px,10vw,140px) var(--pad-x);text-align:center;border-top:1px solid var(--rule)}
+  .pipeline .eyebrow{margin-bottom:22px}
+  .pipeline__title{font-family:var(--f-display);font-weight:300;font-style:italic;font-size:clamp(36px,5vw,64px);line-height:1.1;color:var(--ink);margin-bottom:24px;letter-spacing:-.005em}
+  .pipeline__body{font-size:16px;line-height:1.75;color:var(--driftwood);max-width:54ch;margin:0 auto}
+
+  /* L12 — Match quiz */
+  .quiz{display:flex;flex-direction:column;gap:22px}
+  .quiz__q{display:flex;flex-direction:column;gap:10px}
+  .quiz__lbl{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--driftwood)}
+  .quiz__opts{display:flex;flex-wrap:wrap;gap:6px}
+  .quiz__opt{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--rule);padding:9px 14px;cursor:pointer;transition:all .2s}
+  .quiz__opt:hover{border-color:var(--ink)}
+  .quiz__opt.is-on{background:var(--ink);color:var(--paper-warm);border-color:var(--ink)}
+  .quiz__result{margin-top:6px;padding:18px 18px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:14.5px;line-height:1.6;color:var(--driftwood);display:flex;flex-direction:column;gap:10px}
+  .quiz__result strong{color:var(--ink);font-family:var(--f-display);font-style:italic;font-weight:400;font-size:18px}
+  .quiz__result-cta{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid currentColor;padding-bottom:2px;align-self:flex-start;text-decoration:none}
+
 </style>
 </head>
 <body>
@@ -814,6 +908,16 @@
       </figure>
     </div>
 
+    <!-- L14 — Booking velocity ticker -->
+    <div class="vel-ticker" aria-label="Live booking velocity">
+      <span class="vel-ticker__dot" aria-hidden="true"></span>
+      <span><strong>Phase 1 Canggu</strong> · 6 of 9 VIP slots remain</span>
+      <span class="vel-ticker__sep">·</span>
+      <span><strong>Bukit</strong> · 1 of 8 villas</span>
+      <span class="vel-ticker__sep">·</span>
+      <span><strong>Latest enquiry</strong> · Munich, 18 h ago</span>
+    </div>
+
     <!-- TANDEM 1 — Why now + 10-yr ROI chart -->
     <div class="invest-tandem">
       <div class="invest-tandem__story">
@@ -870,6 +974,36 @@
 
     <!-- L1 Tourism block removed in v3.13b — Jan: nehodí se sem -->
 
+    <!-- L2 — 3 tenant pillars -->
+    <div class="invest-tandem">
+      <div class="invest-tandem__story">
+        <div class="eyebrow">Demand</div>
+        <h3 class="invest-tandem__title">Your tenants <em>already</em> live here.</h3>
+        <p>Average stay 14–28 nights. Year-round occupancy pulled by three distinct tenant pillars — none of them seasonal.</p>
+        <p class="invest-tandem__source">Source · Ananta brand book · Airbnb / Bukit Vista length-of-stay benchmarks 2024</p>
+      </div>
+      <div class="invest-tandem__visual">
+        <div class="invest-tandem__visual-head">
+          <span class="invest-tandem__visual-title">Three tenant pillars</span>
+          <span class="invest-tandem__visual-title" style="font-size:11px;color:var(--driftwood);letter-spacing:.18em">14–28 night stays</span>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar__head"><span class="pillar__num">01</span><span class="pillar__title">Digital nomads</span></div>
+            <p class="pillar__body">Long-stay remote workers from Europe, North America and Australia. 14–28 night average stays. Prioritize fast internet, quiet workspace, walkable beach access.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar__head"><span class="pillar__num">02</span><span class="pillar__title">Surfers &amp; wellness</span></div>
+            <p class="pillar__body">Year-round surf travelers, yoga retreat goers, longevity travelers. Stay clusters around the high seasons (Apr–Oct and Dec–Jan).</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar__head"><span class="pillar__num">03</span><span class="pillar__title">Creative entrepreneurs</span></div>
+            <p class="pillar__body">Founders, designers and small-business operators running their work from Bali for several months at a time. Premium taste, premium spend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- TANDEM 2 — A residence that compares + bar chart -->
     <div class="invest-tandem">
       <div class="invest-tandem__story">
@@ -921,18 +1055,209 @@
       </div>
     </div>
 
+    <!-- L3 — Monthly reporting -->
+    <div class="invest-tandem">
+      <div class="invest-tandem__story">
+        <div class="eyebrow">Cash flow</div>
+        <h3 class="invest-tandem__title">By the <em>20th,</em> the numbers arrive.</h3>
+        <p>Every month, a reporting pack: occupancy, full cost breakdown, your share of resort turnover, distribution paid by the 20th. Plus on-demand right to inspect underlying accounting.</p>
+        <p class="invest-tandem__source">Source · Ananta Sales Book FINAL · operating contract §7</p>
+      </div>
+      <div class="invest-tandem__visual">
+        <div class="invest-tandem__visual-head">
+          <span class="invest-tandem__visual-title">Owner statement · sample</span>
+          <span class="invest-tandem__visual-title" style="font-size:11px;color:var(--driftwood);letter-spacing:.18em">Unit C-3F-07</span>
+        </div>
+        <div class="statement" aria-label="Sample monthly statement">
+          <div class="statement__hd">Apr 2028 · Statement</div>
+          <div class="statement__sep"></div>
+          <div class="statement__line"><span class="k">Resort occupancy</span><span class="v">76 %</span></div>
+          <div class="statement__line"><span class="k">Gross rental</span><span class="v">$42,180</span></div>
+          <div class="statement__line is-neg"><span class="k">− Operator fee (20 %)</span><span class="v">($8,436)</span></div>
+          <div class="statement__line is-neg"><span class="k">− OPEX (~12 %)</span><span class="v">($5,062)</span></div>
+          <div class="statement__line is-neg"><span class="k">− Reserve &amp; tax</span><span class="v">($4,202)</span></div>
+          <div class="statement__sep"></div>
+          <div class="statement__line is-net"><span class="k">Net to you</span><span class="v">$4,310</span></div>
+          <div class="statement__line"><span class="k">Distributed</span><span class="v">20 Apr ✓</span></div>
+          <div class="statement__sep"></div>
+          <div class="statement__line"><span class="k">Coefficient applied</span><span class="v">2.68 %</span></div>
+          <div class="statement__foot" style="margin-top:8px">Inspection right · on-demand</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- L10 — A day in Ananta · 6 rhythms -->
+    <div class="invest-tandem">
+      <div class="invest-tandem__story">
+        <div class="eyebrow">A day in</div>
+        <h3 class="invest-tandem__title">From <em>sunrise</em> yoga to sunset lounge.</h3>
+        <p>Six signature spaces, one for each rhythm of the day. Shared resort amenities for every resident — built into the architecture, not added on.</p>
+      </div>
+      <div class="invest-tandem__visual">
+        <div class="invest-tandem__visual-head">
+          <span class="invest-tandem__visual-title">Six rhythms · one day</span>
+          <span class="invest-tandem__visual-title" style="font-size:11px;color:var(--driftwood);letter-spacing:.18em">Shared amenities</span>
+        </div>
+        <div class="rhythms">
+          <div class="rhythm">
+            <span class="rhythm__dot" aria-hidden="true"></span>
+            <span class="rhythm__time">06:00</span>
+            <span class="rhythm__name">Sunrise yoga</span>
+            <span class="rhythm__desc">Cliff-edge deck, glass-still ocean.</span>
+          </div>
+          <div class="rhythm">
+            <span class="rhythm__dot" aria-hidden="true"></span>
+            <span class="rhythm__time">09:00</span>
+            <span class="rhythm__name">Open staircase</span>
+            <span class="rhythm__desc">Coffee bar, slow morning.</span>
+          </div>
+          <div class="rhythm">
+            <span class="rhythm__dot" aria-hidden="true"></span>
+            <span class="rhythm__time">12:00</span>
+            <span class="rhythm__name">Palm gardens</span>
+            <span class="rhythm__desc">Lunch in the shade.</span>
+          </div>
+          <div class="rhythm">
+            <span class="rhythm__dot" aria-hidden="true"></span>
+            <span class="rhythm__time">15:00</span>
+            <span class="rhythm__name">Rooftop gym</span>
+            <span class="rhythm__desc">Train above the canopy.</span>
+          </div>
+          <div class="rhythm">
+            <span class="rhythm__dot" aria-hidden="true"></span>
+            <span class="rhythm__time">18:00</span>
+            <span class="rhythm__name">Rooftop pool</span>
+            <span class="rhythm__desc">Sunset over the surf.</span>
+          </div>
+          <div class="rhythm">
+            <span class="rhythm__dot" aria-hidden="true"></span>
+            <span class="rhythm__time">21:00</span>
+            <span class="rhythm__name">Sunset lounge</span>
+            <span class="rhythm__desc">Slow drinks, low light.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- L15 — Owner portal preview -->
+    <div class="invest-tandem">
+      <div class="invest-tandem__story">
+        <div class="eyebrow">Owner access</div>
+        <h3 class="invest-tandem__title">Your <em>dashboard,</em> the day after handover.</h3>
+        <p>Live booking calendar. Monthly P&amp;L breakdown. Distribution history. Inspection access. From key handover, your unit is fully transparent — no spreadsheets, no follow-up calls.</p>
+        <p class="invest-tandem__source">Available from Q2 2028 — key handover · accessible via secure web login</p>
+      </div>
+      <div class="invest-tandem__visual">
+        <div class="invest-tandem__visual-head">
+          <span class="invest-tandem__visual-title">Owner portal · preview</span>
+          <span class="invest-tandem__visual-title" style="font-size:11px;color:var(--driftwood);letter-spacing:.18em">v1 · Q2 2028</span>
+        </div>
+        <div class="portal" aria-label="Owner portal mockup">
+          <div class="portal__bar">
+            <strong>Ananta · Owner Portal</strong>
+            <span>Unit C-3F-07</span>
+            <span class="portal__online">Online</span>
+          </div>
+          <div class="portal__kpis">
+            <div class="portal__kpi"><div class="lbl">Occupancy<br>this month</div><div class="val">81<small>%</small></div></div>
+            <div class="portal__kpi"><div class="lbl">Distribution<br>due</div><div class="val">$4,310</div></div>
+            <div class="portal__kpi"><div class="lbl">Nights you've<br>booked</div><div class="val">4<small> / 14</small></div></div>
+          </div>
+          <div class="portal__chart">
+            <div class="portal__chart-lbl">Distributions · last 12 months</div>
+            <div class="portal__bars" aria-hidden="true">
+              <i style="height:54%"></i><i style="height:68%"></i><i style="height:46%"></i>
+              <i style="height:72%"></i><i style="height:88%"></i><i style="height:95%"></i>
+              <i style="height:82%"></i><i style="height:78%"></i><i style="height:60%"></i>
+              <i style="height:66%"></i><i style="height:74%"></i><i style="height:91%"></i>
+            </div>
+            <div class="portal__xax"><span>May</span><span>Jul</span><span>Sep</span><span>Nov</span><span>Jan</span><span>Mar</span><span>Apr</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- L13 — What's next · Pipeline teaser -->
+    <div class="pipeline">
+      <div class="eyebrow">Pipeline</div>
+      <div class="pipeline__title">Two more, in design.</div>
+      <p class="pipeline__body">Two new Ananta locations are in early architectural study — Lombok and Java, opening 2028+. Same operator. Same standards. Different coast.</p>
+    </div>
+
+    <!-- L5 — Top 7 FAQ -->
     <details class="invest-block__faq">
-      <summary>Yields, occupancy and unit economics</summary>
-      <p>Net yields of 9–13% p.a. are modeled at 70% year-round occupancy, with operator fee, OPEX, replacement reserve and tax already deducted. Distributions quarterly. Full pro forma per unit on request.</p>
+      <summary>Do I own the apartment outright?</summary>
+      <p>No. As a foreign buyer, you acquire exclusive long-term usage rights to a specific apartment, registered with a local notary. The underlying land is held under SHM (Sertipikat Hak Milik — Indonesian freehold) by a local landowner. PT MyResorts Ananta Two holds a registered 30+30 year lease.</p>
     </details>
     <details class="invest-block__faq">
-      <summary>How a purchase actually works</summary>
-      <p>Reservation → SPA → milestone payments through construction → handover. Foreign ownership via PT PMA (Canggu, branded residences) or 80-year leasehold with extension (Villas Bukit). Notary, escrow, tax arranged by us, paid by you.</p>
+      <summary>How long do my rights last?</summary>
+      <p>30 years initial term + 30-year extension option = up to 60 years of usage rights. Extension priced at prevailing market rate; if no agreement, median of six independent Bali appraisal firms determines the price.</p>
     </details>
     <details class="invest-block__faq">
-      <summary>Who runs it after you own it</summary>
-      <p>Ananta is operated end-to-end by our in-house team — same brand, same standards. You stay any week of the year (subject to booking); the rest runs as short-stay rental. One contract, one invoice, one number.</p>
+      <summary>What ROI can I realistically expect?</summary>
+      <p>The model projects 9–13 % p.a., depending on floor type and occupancy scenario, with indicative payback in 7.7–11.1 years (Canggu) or 5.9–7.2 years (Villas Bukit). Subject to operating expenses; projections, not guaranteed.</p>
     </details>
+    <details class="invest-block__faq">
+      <summary>How is my profit share calculated?</summary>
+      <p>Partner share = monthly resort turnover × your unit coefficient, less 20 % management fee, operating costs, taxes and reserves pro rata. Coefficients fixed in your operating contract.</p>
+    </details>
+    <details class="invest-block__faq">
+      <summary>Can I use the apartment myself?</summary>
+      <p>Yes — 14 nights per year free of charge outside the peak season, bookable at least 60 days in advance. During own use you pay only actual operating costs. Peak-season own use available at owner-rate (−30 % off ADR).</p>
+    </details>
+    <details class="invest-block__faq">
+      <summary>What currency? Any FX risk?</summary>
+      <p>All payments denominated in USD. No IDR exposure for the buyer. The developer absorbs USD→IDR conversion risk for Indonesian construction costs. Local CZK/EUR conversion at your bank's standard rate.</p>
+    </details>
+    <details class="invest-block__faq">
+      <summary>Can I resell? Can I exit?</summary>
+      <p>Yes — usage rights are transferable with operator's prior written consent (cannot be unreasonably withheld); the new buyer inherits all rights and obligations. The operating contract is terminable with 1-year notice, no minimum lock-up.</p>
+    </details>
+
+    <!-- L12 — Match my profile quiz -->
+    <div class="invest-tandem">
+      <div class="invest-tandem__story">
+        <div class="eyebrow">Match</div>
+        <h3 class="invest-tandem__title">Two projects. <em>Which</em> one?</h3>
+        <p>Three short questions — we'll point you to the project that fits how you'd actually use it. No email required.</p>
+        <p class="invest-tandem__source">Indicative only — the right answer is always a conversation.</p>
+      </div>
+      <div class="invest-tandem__visual">
+        <div class="invest-tandem__visual-head">
+          <span class="invest-tandem__visual-title">Match my profile</span>
+          <span class="invest-tandem__visual-title" style="font-size:11px;color:var(--driftwood);letter-spacing:.18em">3 questions · 20 seconds</span>
+        </div>
+        <div class="quiz" id="matchQuiz">
+          <div class="quiz__q" data-q="budget">
+            <span class="quiz__lbl">Q1. Your investment range</span>
+            <div class="quiz__opts" role="radiogroup">
+              <button class="quiz__opt" data-val="low" type="button">Up to $250K</button>
+              <button class="quiz__opt" data-val="mid" type="button">$250K–$500K</button>
+              <button class="quiz__opt" data-val="high" type="button">$500K+</button>
+            </div>
+          </div>
+          <div class="quiz__q" data-q="horizon">
+            <span class="quiz__lbl">Q2. Your horizon</span>
+            <div class="quiz__opts" role="radiogroup">
+              <button class="quiz__opt" data-val="short" type="button">5 years</button>
+              <button class="quiz__opt" data-val="long" type="button">10+ years</button>
+            </div>
+          </div>
+          <div class="quiz__q" data-q="use">
+            <span class="quiz__lbl">Q3. Use pattern</span>
+            <div class="quiz__opts" role="radiogroup">
+              <button class="quiz__opt" data-val="yield" type="button">Mostly yield</button>
+              <button class="quiz__opt" data-val="both" type="button">Lifestyle + yield</button>
+              <button class="quiz__opt" data-val="lifestyle" type="button">Lifestyle only</button>
+            </div>
+          </div>
+          <div class="quiz__result" id="quizResult" aria-live="polite">
+            <span>Pick one answer per row — we'll point you to the project that fits.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <a href="#contact" class="invest-block__cta">Request investor pack →</a>
   </div>
 </section>
@@ -1364,6 +1689,51 @@
       r.addEventListener('touchstart', () => { wfTip.textContent = r.dataset.tip; }, {passive:true});
     });
     document.getElementById('waterfall').addEventListener('mouseleave', () => { wfTip.textContent = 'Hover any row to see what that line covers.'; });
+  })();
+
+  /* L12 — Match my profile quiz */
+  (function(){
+    const root = document.getElementById('matchQuiz');
+    if(!root) return;
+    const resultEl = document.getElementById('quizResult');
+    const state = { budget:null, horizon:null, use:null };
+
+    root.querySelectorAll('.quiz__q').forEach(q => {
+      const key = q.dataset.q;
+      q.querySelectorAll('.quiz__opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          q.querySelectorAll('.quiz__opt').forEach(b => b.classList.remove('is-on'));
+          btn.classList.add('is-on');
+          state[key] = btn.dataset.val;
+          render();
+        });
+      });
+    });
+
+    function render(){
+      if(!state.budget || !state.horizon || !state.use){
+        resultEl.innerHTML = '<span>Pick one answer per row — we’ll point you to the project that fits.</span>';
+        return;
+      }
+      // Logic: Villas if high budget + long horizon + lifestyle-leaning; else Canggu.
+      let pick = 'canggu';
+      if(state.budget === 'high' && state.horizon === 'long' && (state.use === 'lifestyle' || state.use === 'both')){
+        pick = 'villas';
+      } else if(state.budget === 'low' || state.use === 'yield'){
+        pick = 'canggu';
+      }
+      if(pick === 'villas'){
+        resultEl.innerHTML =
+          '<span>Based on your answers → recommended: <strong>Ananta Villas, Bukit</strong></span>' +
+          '<span>Cliff-edge villas, lower density, longer hold, owner-first use pattern. Higher entry, higher capital-gain profile.</span>' +
+          '<a class="quiz__result-cta" href="https://pauly-ceo.github.io/ananta-villas-assets/" target="_blank" rel="noopener">See Villas Bukit →</a>';
+      } else {
+        resultEl.innerHTML =
+          '<span>Based on your answers → recommended: <strong>Ananta Canggu</strong></span>' +
+          '<span>Branded residences, faster sell-through, lower entry, yield-led economics. The right fit for most first-time Bali investors.</span>' +
+          '<a class="quiz__result-cta" href="https://pauly-ceo.github.io/ananta-canggu-assets/" target="_blank" rel="noopener">See Canggu →</a>';
+      }
+    }
   })();
 </script>
 </body>
