@@ -4,671 +4,852 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ananta — A Boutique Resort Brand in Bali</title>
-<meta name="description" content="Ananta — boutique resort brand in Bali. Two projects in construction and preparation. Built by THIERRA. Investment by FIPOX.">
+<meta name="description" content="Ananta — boutique resort brand in Bali. Two projects: Villas in construction, Canggu in preparation. Built by THIERRA. Backed by FIPOX.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://ananta.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ananta — A Boutique Resort Brand in Bali">
-<meta property="og:description" content="Built to own. Run to pay. Two projects in Bali — Bukit and Canggu.">
-<meta property="og:url" content="https://ananta.com/">
+<meta property="og:description" content="Built to own. Run to pay. Ananta — boutique resorts on Bali.">
+<meta property="og:image" content="https://ananta.com/og-image.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="./Brother%20Signature.otf" as="font" type="font/otf" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#0C1416;
-  --surface:#16252A;
-  --surface-2:#1F3338;
-  --paper:#F2EFE8;
-  --paper-dim:rgba(242,239,232,.72);
-  --muted:#7A8B91;
-  --brass:#C9A87C;
-  --brass-soft:rgba(201,168,124,.18);
-  --status-construction:#D9A441;
-  --status-preparation:#7AA9C9;
-  --rule:rgba(242,239,232,.12);
-  --pad-x:clamp(20px,5vw,80px);
-  --f-display:"Bodoni Moda",Georgia,serif;
-  --f-body:"Inter",system-ui,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,monospace;
-  --f-italic:"Cormorant Garamond",Georgia,serif;
-  --t:.45s;
-  --ease:cubic-bezier(.22,1,.36,1);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  background:var(--bg);
-  color:var(--paper);
-  font-family:var(--f-body);
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-img,video{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{border:none;background:none;color:inherit;font:inherit;cursor:pointer}
-::selection{background:var(--brass);color:var(--bg)}
+  /* Brother Signature — local. font-display:block = skryje text dokud font nedorazí (vyhne se FOUT swap) */
+  @font-face{
+    font-family:"Brother Signature";
+    src:url("./Brother%20Signature.otf") format("opentype");
+    font-display:block;
+  }
+  /* Hero wordmark — fade-in až po načtení fontu, ne hned na fallbacku */
+  .hero__wordmark{opacity:0;transition:opacity .35s ease-out}
+  html.fonts-ready .hero__wordmark{opacity:1}
 
-/* ============ TOP NAV ============ */
-.topbar{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:22px var(--pad-x);
-  transition:background var(--t) var(--ease),border-color var(--t) var(--ease);
-  border-bottom:1px solid transparent;
-}
-.topbar.solid{background:rgba(12,20,22,.92);border-bottom-color:var(--rule);backdrop-filter:blur(12px)}
-.topbar__brand{
-  font-family:var(--f-display);font-weight:500;
-  font-size:22px;letter-spacing:.18em;color:var(--paper);
-  text-transform:uppercase;
-}
-.topbar__nav{display:flex;gap:clamp(28px,3.5vw,52px);align-items:center;font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500}
-.topbar__nav a{position:relative;padding:6px 0;color:var(--paper-dim);transition:color var(--t)}
-.topbar__nav a:hover{color:var(--paper)}
-.topbar__nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--brass);transition:right var(--t) var(--ease)}
-.topbar__nav a:hover::after{right:0}
-.topbar__cta{padding:10px 18px;border:1px solid var(--brass);color:var(--brass);font-size:11px;letter-spacing:.22em;text-transform:uppercase;transition:background var(--t),color var(--t)}
-.topbar__cta:hover{background:var(--brass);color:var(--bg)}
-@media(max-width:980px){
-  .topbar__nav{display:none}
-  .topbar{padding:14px 20px}
-  .topbar__cta{padding:8px 14px;font-size:10px;letter-spacing:.18em}
-  .topbar__brand{font-size:18px}
-}
+  :root{
+    --ink:#2A2620;
+    --ink-soft:#5E6C74;
+    --paper:#FFFFFF;
+    --paper-warm:#FBF8F3;      /* subtle pearl tint for "neutral" sections */
+    --pearl:#EDE7E0;
+    --pearl-light:#F4EFE8;
+    --sand:#C9BCAD;
+    --driftwood:#8F8476;
+    --slate:#5E6C74;
+    --slate-deep:#3F4951;      /* warm dark for inverted sections */
+    --slate-darker:#2C353B;    /* deepest, replaces pure ink-black bg */
+    --mist:#CBD5DB;
+    --blush:#E8D3CE;
+    --blush-deep:#D4B5AE;      /* accent pulse */
+    --rule:rgba(42,38,32,.14);
+    --f-script:"Brother Signature","Caveat",cursive;
+    --f-display:"Cormorant Garamond","Didot","Bodoni 72",serif;
+    --f-body:"Inter","Söhne",system-ui,-apple-system,sans-serif;
+    --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --t:.7s;
+    --ease:cubic-bezier(.16,1,.3,1);
+    --pad-x:clamp(20px, 4vw, 80px);
+  }
 
-/* ============ HERO ============ */
-.hero{position:relative;height:100vh;min-height:600px;color:var(--paper);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden}
-.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero__veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(12,20,22,.45) 0%,rgba(12,20,22,.25) 35%,rgba(12,20,22,.70) 100%)}
-.hero__inner{position:relative;z-index:2;padding:0 var(--pad-x);display:flex;flex-direction:column;align-items:center;gap:36px;max-width:980px}
-.hero__wordmark{
-  font-family:var(--f-display);font-weight:400;
-  font-size:clamp(72px,11vw,180px);
-  line-height:.95;letter-spacing:.12em;
-  text-transform:uppercase;
-  text-shadow:0 2px 40px rgba(0,0,0,.4);
-}
-.hero__subline{
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.42em;text-transform:uppercase;
-  color:var(--paper-dim);
-  padding-top:18px;padding-bottom:0;
-  position:relative;
-}
-.hero__subline::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:1px;background:var(--brass)}
-.hero__claim{
-  font-family:var(--f-italic);font-style:italic;font-weight:300;
-  font-size:clamp(20px,2.4vw,30px);
-  line-height:1.5;color:var(--paper);
-  max-width:38ch;
-}
-.hero__cta{
-  margin-top:8px;
-  padding:16px 36px;
-  border:1px solid var(--brass);color:var(--brass);
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-  transition:background var(--t),color var(--t);
-}
-.hero__cta:hover{background:var(--brass);color:var(--bg)}
-.hero__stats{
-  position:absolute;bottom:36px;left:0;right:0;z-index:3;
-  display:flex;justify-content:center;gap:clamp(28px,5vw,72px);
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--paper-dim);
-}
-.hero__stats span strong{font-family:var(--f-display);font-size:18px;font-weight:500;color:var(--brass);letter-spacing:.05em;display:block;margin-bottom:6px}
-@media(max-width:680px){
-  .hero__wordmark{font-size:18vw;letter-spacing:.08em}
-  .hero__stats{flex-wrap:wrap;gap:18px;padding:0 20px;bottom:24px}
-}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  html,body{height:auto;background:#000;color:var(--ink);font-family:var(--f-body);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  img,video{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;background:none;border:none;cursor:pointer;color:inherit}
+  ::selection{background:var(--ink);color:var(--paper)}
 
-/* ============ SECTION SHELL ============ */
-section{padding:clamp(80px,10vw,140px) var(--pad-x);position:relative}
-.eyebrow{
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.42em;text-transform:uppercase;
-  color:var(--brass);margin-bottom:24px;display:inline-block;
-}
-.section__head{max-width:880px;margin:0 auto 70px;text-align:center}
-.section__head h2{
-  font-family:var(--f-display);font-weight:400;font-style:normal;
-  font-size:clamp(36px,4.6vw,64px);line-height:1.1;letter-spacing:-.005em;
-  color:var(--paper);
-}
-.section__head p{
-  margin-top:24px;font-size:17px;line-height:1.7;color:var(--paper-dim);
-  max-width:62ch;margin-left:auto;margin-right:auto;
-}
+  /* All sections after hero sit above the fixed background video */
+  section, footer{position:relative;z-index:2}
 
-/* ============ BRAND INTRO ============ */
-.brand{background:var(--bg);text-align:center}
-.brand__inner{max-width:880px;margin:0 auto}
-.brand h2{
-  font-family:var(--f-display);font-weight:400;
-  font-size:clamp(28px,3.4vw,46px);line-height:1.35;
-  color:var(--paper);
-}
-.brand h2 em{font-family:var(--f-italic);font-style:italic;color:var(--brass);font-weight:400}
-.brand__meta{
-  margin-top:48px;display:flex;justify-content:center;gap:clamp(36px,6vw,84px);
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--paper-dim);
-}
-.brand__meta span strong{display:block;color:var(--brass);font-family:var(--f-display);font-size:15px;font-weight:500;letter-spacing:.05em;margin-bottom:6px}
+  /* TOPBAR */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px var(--pad-x);
+    background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,0));
+    color:var(--paper);
+    transition:background var(--t) var(--ease),color var(--t) var(--ease);
+  }
+  .topbar.solid{background:var(--paper-warm);color:var(--ink);border-bottom:1px solid var(--rule)}
+  .topbar__brand{font-family:var(--f-script);font-size:26px;line-height:1;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+  .topbar__brand small{font-family:var(--f-mono);font-size:9px;letter-spacing:.22em;opacity:.7;align-self:flex-end;padding-bottom:5px}
+  .topbar__nav{display:flex;gap:clamp(36px,4.4vw,72px);align-items:center;font-family:var(--f-body);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:400}
+  .topbar__nav a{position:relative;padding:6px 0;opacity:.92}
+  .topbar__nav a:hover{opacity:1}
+  .topbar__nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right var(--t) var(--ease)}
+  .topbar__nav a:hover::after{right:0}
+  .topbar__lang{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;opacity:.7}
+  .topbar__cta{padding:10px 18px;border:1px solid currentColor;font-size:11px;letter-spacing:.22em;text-transform:uppercase;transition:background var(--t) var(--ease),color var(--t) var(--ease)}
+  .topbar__cta:hover{background:currentColor;color:var(--paper)}
+  .topbar.solid .topbar__cta:hover{color:var(--paper);background:var(--ink)}
+  @media (max-width:880px){
+    .topbar__nav{display:none}
+    .topbar__brand{font-size:22px}
+    .topbar__brand small{display:none}
+    .topbar__lang{display:none}
+    .topbar{padding:14px 20px}
+    .topbar__cta{padding:8px 14px;font-size:10px;letter-spacing:.18em}
+  }
 
-/* ============ COLLECTION (In Construction + In Preparation) ============ */
-.collection{background:var(--bg)}
-.project{
-  display:grid;grid-template-columns:1fr 1fr;gap:0;
-  background:var(--surface);
-  margin-bottom:1px;
-}
-.project:nth-child(even){direction:rtl}
-.project:nth-child(even) > *{direction:ltr}
-.project__media{position:relative;aspect-ratio:5/6;overflow:hidden;background:#000}
-.project__media img{width:100%;height:100%;object-fit:cover;transition:transform 8s var(--ease)}
-.project:hover .project__media img{transform:scale(1.04)}
-.project__status{
-  position:absolute;top:24px;left:24px;z-index:2;
-  padding:8px 14px;
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;
-  background:rgba(12,20,22,.85);
-  border:1px solid;
-}
-.project__status.construction{color:var(--status-construction);border-color:var(--status-construction)}
-.project__status.preparation{color:var(--status-preparation);border-color:var(--status-preparation)}
-.project__body{padding:clamp(40px,5vw,80px) clamp(28px,4vw,64px);display:flex;flex-direction:column;justify-content:center;gap:24px}
-.project__index{font-family:var(--f-mono);font-size:11px;letter-spacing:.42em;color:var(--brass);text-transform:uppercase}
-.project__name{
-  font-family:var(--f-display);font-weight:400;
-  font-size:clamp(36px,4vw,56px);line-height:1.05;letter-spacing:-.005em;
-  color:var(--paper);
-}
-.project__lead{font-family:var(--f-italic);font-style:italic;font-size:18px;line-height:1.55;color:var(--paper-dim);max-width:42ch}
-.project__meta{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;font-size:13px;color:var(--paper-dim)}
-.project__meta li{display:flex;flex-direction:column;gap:4px}
-.project__meta li span{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass)}
-.project__cta{
-  margin-top:24px;align-self:flex-start;
-  padding:14px 28px;border:1px solid var(--brass);color:var(--brass);
-  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;
-  transition:background var(--t),color var(--t);
-}
-.project__cta:hover{background:var(--brass);color:var(--bg)}
-@media(max-width:880px){
-  .project{grid-template-columns:1fr}
-  .project:nth-child(even){direction:ltr}
-  .project__media{aspect-ratio:4/3}
-}
+  /* HERO — fixed video stays as page background, content scrolls over it */
+  .hero__rotation{
+    position:fixed;inset:0;z-index:0;background:#000;
+    pointer-events:none;
+  }
+  .hero__rotation video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0;transition:opacity 1s var(--ease);
+  }
+  .hero__rotation video.is-active{opacity:1}
+  .hero{position:relative;height:100vh;min-height:580px;color:var(--paper);display:flex;flex-direction:column;justify-content:center;z-index:1}
+  .hero__veil{position:fixed;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.05) 30%,rgba(0,0,0,.55) 100%);pointer-events:none}
+  .hero__inner{position:relative;z-index:2;padding:0 var(--pad-x);text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px;margin-top:-4vh}
+  .hero__wordmark{
+    font-family:var(--f-script);
+    font-weight:400;
+    font-size:min(7.2vw,140px);
+    line-height:1;
+    letter-spacing:.005em;
+    text-shadow:0 2px 40px rgba(0,0,0,.4);
+    color:#fff;
+    margin:0;
+    white-space:nowrap;
+  }
+  @media(max-width:480px){.hero__wordmark{font-size:6.5vw}}
+  .hero__reg{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.42em;opacity:.85;
+    padding-top:14px;border-top:1px solid rgba(255,255,255,.55);
+  }
+  .hero__scroll{position:absolute;left:50%;bottom:48px;transform:translateX(-50%);font-family:var(--f-mono);font-size:10px;letter-spacing:.32em;opacity:.6;z-index:3;text-align:center;line-height:1;text-decoration:none;text-transform:uppercase}
+  .hero__scroll::after{content:"";display:block;width:1px;height:32px;background:currentColor;margin:14px auto 0}
+  @media(max-width:480px){.hero__scroll{bottom:72px;font-size:9px}.hero__scroll::after{height:24px;margin-top:10px}}
 
-/* ============ INVEST ============ */
-.invest{background:var(--surface);text-align:center}
-.invest__kpis{
-  display:flex;justify-content:center;gap:clamp(28px,5vw,80px);
-  margin:0 auto 80px;flex-wrap:wrap;max-width:1000px;
-}
-.invest__kpi{text-align:center;min-width:140px}
-.invest__kpi .num{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,5vw,68px);line-height:1;color:var(--brass);display:block}
-.invest__kpi .num .unit{font-family:var(--f-mono);font-size:.32em;letter-spacing:.08em;display:inline-block;margin-left:.15em;vertical-align:.7em;color:var(--paper-dim)}
-.invest__kpi .cap{margin-top:14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--paper-dim)}
-.invest__faq{max-width:780px;margin:0 auto 60px;text-align:left}
-.invest__faq details{
-  border-top:1px solid var(--rule);
-  padding:28px 0;
-}
-.invest__faq details:last-child{border-bottom:1px solid var(--rule)}
-.invest__faq summary{
-  list-style:none;cursor:pointer;
-  display:flex;justify-content:space-between;align-items:center;gap:24px;
-  font-family:var(--f-display);font-size:clamp(20px,2.2vw,28px);font-weight:400;color:var(--paper);
-}
-.invest__faq summary::-webkit-details-marker{display:none}
-.invest__faq summary::after{content:"+";font-family:var(--f-mono);font-size:24px;font-weight:300;color:var(--brass);transition:transform var(--t)}
-.invest__faq details[open] summary::after{content:"−"}
-.invest__faq details p{margin-top:20px;color:var(--paper-dim);line-height:1.7;font-size:15.5px}
-.invest__cta{margin-top:20px}
+  /* PROLOG — hero video continues behind, white text over it */
+  .prolog{padding:clamp(96px,12vw,180px) var(--pad-x);text-align:center;color:#fff;position:relative}
+  .prolog::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.28) 50%,rgba(0,0,0,.42));z-index:-1}
+  .prolog > *{max-width:1080px;margin-left:auto;margin-right:auto;position:relative}
+  .prolog .eyebrow{color:var(--blush)}
+  .prolog h2{
+    color:#fff;
+    font-family:var(--f-script);
+    font-style:normal;
+    font-weight:400;
+    font-size:clamp(32px,4vw,64px);
+    line-height:1.15;
+    letter-spacing:.005em;
+    text-shadow:0 2px 28px rgba(0,0,0,.45);
+    max-width:18ch;
+  }
+  .prolog p{
+    color:#fff;opacity:1;
+    font-family:var(--f-body);
+    font-weight:300;
+    font-size:clamp(15px,1.25vw,18px);
+    line-height:1.65;
+    letter-spacing:.005em;
+    text-shadow:0 1px 18px rgba(0,0,0,.4);
+    max-width:720px;
+  }
+  .prolog .stats{border-top-color:rgba(255,255,255,.3);border-bottom-color:rgba(255,255,255,.3)}
+  .prolog .stats strong{color:#fff}
+  .prolog .stats span{color:rgba(255,255,255,.75)}
+  .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--driftwood);margin-bottom:24px}
+  .prolog h2{margin-bottom:34px}
+  .prolog p{margin:0 auto 18px}
+  .prolog .stats{margin-top:62px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:32px 0}
+  @media(max-width:520px){.prolog .stats{grid-template-columns:1fr;gap:24px}}
+  .stats div{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .stats strong{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3.6vw,44px)}
+  .stats span{font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--driftwood)}
 
-/* ============ STAY ============ */
-.stay{background:var(--bg);text-align:center}
-.stay__inner{max-width:760px;margin:0 auto}
-.stay__claim{font-family:var(--f-italic);font-style:italic;font-size:clamp(22px,2.6vw,32px);line-height:1.5;color:var(--paper);margin-bottom:40px}
+  /* PARALLAX SEASON */
+  .season{position:relative}
+  .season__sticky{
+    position:sticky;top:0;height:100vh;min-height:560px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .season__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform;background:#1a1f24}
+  .season__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.62))}
+  .season__title{position:relative;z-index:2;text-align:center;color:#fff;padding:0 var(--pad-x)}
+  .season__kicker{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;opacity:.85;margin-bottom:20px}
+  .season__title h2{font-family:var(--f-script);font-style:normal;font-weight:400;font-size:min(9vw,160px);line-height:1;letter-spacing:.005em;white-space:nowrap;text-shadow:0 2px 40px rgba(0,0,0,.45);color:#fff}
 
-/* ============ PARTNERS ============ */
-.partners{background:var(--surface)}
-.partners__inner{max-width:1100px;margin:0 auto}
-.partners__map{
-  background:var(--surface-2);border:1px solid var(--rule);
-  padding:clamp(40px,5vw,72px);text-align:center;margin-bottom:48px;
-}
-.partners__map-title{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-bottom:24px}
-.partners__map svg{max-width:100%;height:auto}
-.partners__map svg .country{fill:var(--surface);stroke:rgba(242,239,232,.18);stroke-width:.5;transition:fill var(--t)}
-.partners__map svg .country.has-agent{fill:var(--brass-soft);stroke:var(--brass)}
-.partners__map svg .country.has-agent:hover{fill:var(--brass);cursor:pointer}
-.partners__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
-.partner{
-  background:var(--surface-2);border:1px solid var(--rule);
-  padding:32px 28px;display:flex;flex-direction:column;gap:14px;
-}
-.partner__flag{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass)}
-.partner__name{font-family:var(--f-display);font-size:22px;color:var(--paper);font-weight:400}
-.partner__role{font-size:13px;color:var(--paper-dim);line-height:1.5}
-.partner__link{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);border-bottom:1px solid currentColor;padding-bottom:2px;align-self:flex-start;margin-top:4px}
-.partners__cta{text-align:center}
-.partners__cta a{
-  display:inline-block;padding:18px 40px;
-  background:var(--brass);color:var(--bg);
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-  transition:opacity var(--t);
-}
-.partners__cta a:hover{opacity:.88}
-@media(max-width:880px){.partners__grid{grid-template-columns:1fr}}
+  /* Projects sections — full-bleed cards inside, no padding */
+  .projects{position:relative;padding:0;background:#000;color:var(--paper)}
+  .projects__sticky-bg{display:none}
+  .projects__grid{margin:0;padding:0;display:flex;flex-direction:column;gap:0}
 
-/* ============ ABOUT ============ */
-.about{background:var(--bg)}
-.about__inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.about__copy h2{font-family:var(--f-display);font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.1;margin-bottom:28px;color:var(--paper)}
-.about__copy p{color:var(--paper-dim);font-size:16px;line-height:1.75;margin-bottom:18px;max-width:50ch}
-.about__credits{display:flex;gap:40px;margin-top:36px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase}
-.about__credits span{display:flex;flex-direction:column;gap:6px}
-.about__credits span strong{color:var(--brass);font-family:var(--f-display);font-size:18px;font-weight:500;letter-spacing:.05em}
-.about__credits span em{font-style:normal;color:var(--paper-dim);font-size:10px}
-.about__team{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.team-card{background:var(--surface);border:1px solid var(--rule);padding:24px 22px}
-.team-card__name{font-family:var(--f-display);font-size:18px;color:var(--paper);margin-bottom:4px;font-weight:500}
-.team-card__role{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
-@media(max-width:880px){.about__inner{grid-template-columns:1fr;gap:40px}}
+  /* CARD — HBA pattern: sticky BG + sticky title + scrolling overlay images */
+  .card{
+    position:relative;display:block;
+    height:220vh; /* total scroll length per project */
+    background:#091D1E;
+    text-decoration:none;color:var(--paper);
+    overflow:visible;
+  }
+  /* Status badge top of card */
 
-/* ============ JOURNAL ============ */
-.journal{background:var(--surface)}
-.journal__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
-.article{
-  background:var(--surface-2);border:1px solid var(--rule);
-  padding:32px 28px;
-  display:flex;flex-direction:column;gap:14px;
-  transition:border-color var(--t),transform var(--t);
-}
-.article:hover{border-color:var(--brass);transform:translateY(-3px)}
-.article time{font-family:var(--f-mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass)}
-.article h3{font-family:var(--f-display);font-size:20px;font-weight:400;line-height:1.3;color:var(--paper)}
-.article p{font-size:13.5px;color:var(--paper-dim);line-height:1.55}
-@media(max-width:880px){.journal__grid{grid-template-columns:1fr}}
+  /* Layer 1: BG image sticky-pinned 100vh */
+  .card__media{
+    position:sticky;top:0;
+    width:100%;height:100vh;
+    overflow:hidden;background:#091D1E;
+    z-index:0;
+  }
+  .card__media img{
+    width:100%;height:100%;object-fit:cover;
+    filter:saturate(.92);
+  }
+  .card__media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(9,29,30,.08) 0%,rgba(9,29,30,.2) 50%,rgba(9,29,30,.78) 100%);
+  }
 
-/* ============ CONTACT ============ */
-.contact{background:var(--bg)}
-.contact__inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center}
-.contact__photo{position:relative;aspect-ratio:4/5;overflow:hidden}
-.contact__photo img{width:100%;height:100%;object-fit:cover}
-.contact__photo-credit{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(12,20,22,.92) 0%,transparent 100%);padding:32px 24px 20px;color:var(--paper)}
-.contact__photo-credit strong{font-family:var(--f-display);font-size:18px;font-weight:500;display:block}
-.contact__photo-credit span{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--brass);margin-top:4px;display:block}
-.contact__copy h2{font-family:var(--f-display);font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.1;margin-bottom:28px}
-.contact__copy p{color:var(--paper-dim);font-size:16px;line-height:1.7;margin-bottom:28px}
-.contact__list{list-style:none;display:flex;flex-direction:column;gap:20px;border-top:1px solid var(--rule);padding-top:30px}
-.contact__list li{display:flex;flex-direction:column;gap:6px}
-.contact__list span{font-family:var(--f-mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass)}
-.contact__list a{color:var(--paper);font-size:17px;border-bottom:1px solid transparent;padding-bottom:2px;width:max-content;transition:border-color var(--t)}
-.contact__list a:hover{border-color:var(--brass)}
-@media(max-width:880px){.contact__inner{grid-template-columns:1fr;gap:40px}}
+  /* Layer 2: Scrolling overlay images — float past BG */
+  .card__overlays{
+    position:relative;z-index:1;
+    margin-top:-100vh;
+    padding:30vh clamp(20px,5vw,80px) 40vh;
+    display:flex;flex-direction:column;gap:10vh;
+    pointer-events:none;
+  }
+  .card__overlay-img{
+    width:clamp(280px,38vw,500px);height:auto;aspect-ratio:4/5;
+    object-fit:cover;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.55);
+  }
+  .card__overlay-img:nth-child(1){align-self:flex-start;margin-left:8vw}
+  .card__overlay-img:nth-child(2){align-self:flex-end;width:clamp(220px,30vw,400px);margin-right:8vw}
+  .card__overlay-img:nth-child(3){align-self:center;width:clamp(260px,34vw,460px)}
 
-/* ============ FOOTER ============ */
-.footer{background:var(--surface-2);padding:60px var(--pad-x) 36px;border-top:1px solid var(--rule)}
-.footer__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;font-size:13px;color:var(--paper-dim)}
-.footer__brand{font-family:var(--f-display);font-size:26px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);margin-bottom:12px}
-.footer__brand-line{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass)}
-.footer__col h4{font-family:var(--f-mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;font-weight:500}
-.footer__col a{display:block;padding:6px 0;color:var(--paper-dim);transition:color var(--t)}
-.footer__col a:hover{color:var(--paper)}
-.footer__bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap;gap:12px}
-@media(max-width:880px){
-  .footer__inner{grid-template-columns:1fr 1fr;gap:32px}
-}
+  /* Status badge */
+  .card__status{
+    position:absolute;top:clamp(20px,3vw,36px);left:clamp(20px,3vw,36px);z-index:3;
+    display:flex;align-items:center;gap:8px;
+    font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    color:#fff;padding:7px 12px 7px 10px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);
+  }
+  .card__status::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:#fff;
+    box-shadow:0 0 0 0 rgba(255,255,255,.6);
+  }
+  .card__status.selling{background:rgba(94,108,116,.92)}
+  .card__status.selling::before{background:var(--blush-deep);animation:pulse 1.8s ease-in-out infinite}
+  .card__status.prelaunch{background:rgba(143,132,118,.92)}
+  .card__status.prelaunch::before{background:var(--blush)}
+  .card__status.operating{background:rgba(63,73,81,.78)}
+  .card__status.operating::before{background:var(--mist)}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(212,181,174,.7);transform:scale(1)}
+    50%{box-shadow:0 0 0 6px rgba(212,181,174,0);transform:scale(1.18)}
+  }
+
+  /* Layer 3: Title block sticky-pinned bottom-of-viewport throughout card scroll */
+  .card__body{
+    position:sticky;bottom:0;
+    margin-top:-34vh; /* lift to overlap last 34vh of scroll */
+    padding:clamp(36px,5vw,72px) clamp(36px,5vw,80px) clamp(36px,5vw,64px);
+    display:grid;grid-template-columns:minmax(280px,1.4fr) 1fr 1fr 1fr 1fr;gap:clamp(24px,3vw,48px);align-items:end;
+    color:var(--paper);
+    background:linear-gradient(180deg,transparent 0%,rgba(9,29,30,.8) 50%,rgba(9,29,30,.95) 100%);
+    z-index:3;pointer-events:none;
+    min-height:34vh;
+  }
+  .card__body > *{pointer-events:auto}
+  .card__title-block{grid-column:1;display:flex;flex-direction:column;gap:24px}
+  .card__name{
+    font-family:var(--f-script);font-weight:400;font-style:normal;
+    font-size:clamp(42px,4.4vw,72px);line-height:1;margin:0;
+    letter-spacing:.005em;
+    color:var(--paper);
+  }
+  .card:hover .card__name{color:var(--slate)}
+  /* Meta info — each li becomes its own horizontal column */
+  .card__meta{list-style:none;padding:0;margin:0;display:contents}
+  .card__meta li{
+    font-family:var(--f-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(255,255,255,.55);line-height:1.5;
+    align-self:start;padding-top:6px;
+  }
+  .card__meta li:nth-child(1){grid-column:2}
+  .card__meta li:nth-child(2){grid-column:3}
+  .card__meta li:nth-child(3){grid-column:4}
+  .card__meta li:nth-child(4){grid-column:5}
+  /* CTA pill — moved to title-block via JS-free trick: hide last li, render pill manually */
+  .card__cta-pill{
+    align-self:flex-start;display:inline-flex;align-items:center;gap:10px;
+    padding:11px 22px;border:1px solid rgba(255,255,255,.55);
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#fff;
+    transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease),gap .4s var(--ease);
+  }
+  .card__cta-pill::after{content:"→"}
+  .card:hover .card__cta-pill{background:#fff;color:#091D1E;border-color:#fff;gap:16px}
+  .card__meta li.card__cta{display:none}
+  @media(max-width:880px){
+    /* Disable sticky pattern below tablet — normal flow stack */
+    .card{height:auto;min-height:0}
+    .card__media{position:relative;top:auto;height:60vh;min-height:360px;margin:0}
+    .card__overlays{position:relative;margin-top:0;padding:32px 20px 16px;gap:24px}
+    .card__overlay-img{width:88vw!important;max-width:520px;height:auto;aspect-ratio:4/5;margin:0 auto!important;align-self:center!important}
+    .card__body{
+      position:relative;bottom:auto;margin-top:0;min-height:auto;
+      background:#091D1E;
+      grid-template-columns:1fr 1fr;gap:20px 28px;
+      padding:32px 24px 40px;
+    }
+    .card__title-block{grid-column:1/-1;gap:18px;margin-bottom:8px}
+    .card__name{font-size:clamp(40px,7vw,60px)}
+    .card__meta li:nth-child(1){grid-column:1;grid-row:2}
+    .card__meta li:nth-child(2){grid-column:2;grid-row:2}
+    .card__meta li:nth-child(3){grid-column:1;grid-row:3}
+    .card__meta li:nth-child(4){grid-column:2;grid-row:3}
+  }
+  @media(max-width:560px){
+    .card__media{height:50vh;min-height:300px}
+    .card__overlay-img{width:90vw!important}
+    .card__body{grid-template-columns:1fr;gap:14px;padding:28px 20px 32px}
+    .card__meta li{grid-column:1!important;grid-row:auto!important}
+    .card__name{font-size:clamp(28px,8vw,40px)}
+  }
+
+  /* Investment — story + 3 KPI + photo strip */
+  .invest{padding:clamp(96px,12vw,180px) var(--pad-x);background:var(--slate-darker);color:var(--paper)}
+  .invest__inner{max-width:1080px;margin:0 auto;text-align:center}
+  .invest__inner .eyebrow{color:var(--blush);margin-bottom:22px}
+  .invest__head{font-family:var(--f-script);font-weight:400;font-style:normal;font-size:clamp(42px,5.6vw,90px);line-height:1.05;letter-spacing:.005em;margin:0 auto;max-width:18ch;color:var(--paper)}
+  .invest__body{margin-top:38px;display:grid;gap:18px;max-width:680px;margin-left:auto;margin-right:auto;font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.78)}
+  .invest__kpis{
+    margin:clamp(56px,7vw,90px) auto 0;max-width:1180px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);
+  }
+  .invest__kpi{padding:38px 22px;text-align:center;border-right:1px solid rgba(255,255,255,.18)}
+  .invest__kpi:last-child{border-right:0}
+  .invest__kpi .num{font-family:var(--f-display);font-weight:300;font-style:italic;font-size:clamp(48px,6vw,88px);line-height:.95;letter-spacing:-.02em;color:var(--blush);display:block}
+  .invest__kpi .num .unit{font-size:.32em;letter-spacing:.04em;display:inline-block;margin-left:.1em;vertical-align:.7em;opacity:.7;font-style:normal}
+  .invest__kpi .cap{margin-top:14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--mist);opacity:.85}
+  .invest__strip{margin:clamp(48px,6vw,80px) auto 0;max-width:1180px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .invest__strip figure{aspect-ratio:4/3;overflow:hidden;background:var(--slate);margin:0;position:relative}
+  .invest__strip figure img{width:100%;height:100%;object-fit:cover;animation:kburn 18s ease-in-out infinite}
+  .invest__strip figure:nth-child(2) img{animation-delay:-6s}
+  .invest__strip figure:nth-child(3) img{animation-delay:-12s}
+  @keyframes kburn{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+  .invest__strip figcaption{position:absolute;left:14px;bottom:12px;color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  .invest__cta{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(48px,6vw,72px);font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--paper);padding-bottom:6px;border-bottom:1px solid var(--paper);transition:gap .4s var(--ease)}
+  .invest__cta:hover{gap:18px}
+  @media(max-width:780px){
+    .invest__kpis{grid-template-columns:1fr;border-top:0}
+    .invest__kpi{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
+    .invest__strip{grid-template-columns:1fr}
+  }
+
+  /* Seasons loop break */
+  .seasons-loop{position:relative;height:80vh;min-height:520px;overflow:hidden;background:#000}
+  .seasons-loop video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s var(--ease)}
+  .seasons-loop video.is-active{opacity:1}
+  .seasons-loop__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.45));z-index:2}
+  .seasons-loop__caption{position:absolute;left:0;right:0;bottom:clamp(40px,5vw,80px);z-index:3;text-align:center;color:#fff;padding:0 var(--pad-x)}
+  .seasons-loop__caption .eyebrow{color:rgba(255,255,255,.7);margin-bottom:18px}
+  .seasons-loop__caption h2{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(34px,5vw,72px);line-height:1.08;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+
+  /* Pillars */
+  .pillars{padding:clamp(96px,12vw,180px) var(--pad-x);background:var(--slate-deep);color:var(--paper);text-align:center}
+  .pillars .eyebrow{color:rgba(255,255,255,.55)}
+  .pillars h2{font-family:var(--f-script);font-style:normal;font-weight:400;font-size:clamp(38px,4.6vw,68px);max-width:880px;margin:0 auto 70px;line-height:1.15;letter-spacing:.005em}
+  .pillars__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px;max-width:1180px;margin:0 auto;text-align:left}
+  .pillar h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--blush);margin-bottom:20px}
+  .pillar h4{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.25;margin-bottom:18px}
+  .pillar p{font-size:15px;line-height:1.65;color:rgba(255,255,255,.78)}
+  @media (max-width:780px){.pillars__grid{grid-template-columns:1fr;gap:48px}}
+
+  /* Partners */
+  .partners{padding:clamp(96px,12vw,180px) var(--pad-x);background:var(--blush);color:var(--ink)}
+  .partners__inner{max-width:880px;margin:0 auto;text-align:center}
+  .partners__inner h2{font-family:var(--f-script);font-style:normal;font-weight:400;font-size:clamp(42px,5.6vw,84px);line-height:1.1;margin:10px 0 30px;letter-spacing:.005em}
+  .partners__inner p{font-size:17px;line-height:1.7;max-width:680px;margin:0 auto 44px;opacity:.85}
+  .partners__btn{display:inline-block;padding:18px 50px;border:1px solid var(--ink);font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;transition:background var(--t) var(--ease),color var(--t) var(--ease)}
+  .partners__btn:hover{background:var(--ink);color:var(--paper)}
+  .partners__panel{margin-top:clamp(56px,7vw,90px);padding-top:42px;border-top:1px solid rgba(42,38,32,.22)}
+  .partners__panel .eyebrow{margin-bottom:24px;color:rgba(42,38,32,.55)}
+  .partners__list{display:flex;justify-content:center;align-items:center;gap:clamp(28px,4vw,60px);flex-wrap:wrap}
+  .partners__list a{
+    font-family:var(--f-display);font-style:italic;font-weight:400;
+    font-size:clamp(22px,2.6vw,34px);line-height:1;letter-spacing:-.005em;
+    color:var(--ink);position:relative;padding:6px 2px;
+    transition:color .4s var(--ease);
+  }
+  .partners__list a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+  .partners__list a:hover{color:var(--slate)}
+  .partners__list a:hover::after{transform:scaleX(1)}
+  .partners__list .sep{font-family:var(--f-mono);opacity:.4;font-size:14px}
+
+  /* Why TPRC — HBA striped layout */
+  .why{padding:clamp(96px,12vw,180px) var(--pad-x);background:var(--paper-warm)}
+  .why > *{max-width:1320px;margin-left:auto;margin-right:auto}
+  .why__head{text-align:center;margin-bottom:100px}
+  .why__head h2{font-family:var(--f-script);font-style:normal;font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1.15;margin-top:10px;letter-spacing:.005em}
+  .why__grid{display:grid;gap:clamp(64px,9vw,140px)}
+  .vow{display:grid;grid-template-columns:5fr 1fr 5fr;gap:0;align-items:center}
+  .vow figure{aspect-ratio:5/6;overflow:hidden;background:var(--pearl);margin:0;grid-column:1}
+  .vow figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+  .vow:hover figure img{transform:scale(1.04)}
+  .vow__text{grid-column:3}
+  .vow:nth-child(even) figure{grid-column:3}
+  .vow:nth-child(even) .vow__text{grid-column:1;grid-row:1}
+  .vow h3{font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--driftwood);margin-bottom:20px}
+  .vow h4{font-family:var(--f-script);font-style:normal;font-weight:400;font-size:clamp(32px,3.8vw,54px);line-height:1.15;margin-bottom:22px;letter-spacing:.005em}
+  .vow p{font-size:16px;line-height:1.7;opacity:.85;max-width:46ch}
+  @media (max-width:780px){
+    .vow{grid-template-columns:1fr;gap:28px}
+    .vow figure,.vow:nth-child(even) figure,.vow__text,.vow:nth-child(even) .vow__text{grid-column:1;grid-row:auto}
+  }
+
+  /* Vows closing — KPI strip + CTA after Three Vows */
+  .vows-close{
+    margin-top:clamp(80px,10vw,160px);
+    padding-top:clamp(56px,6vw,90px);
+    border-top:1px solid var(--rule);
+    text-align:center;
+  }
+  .vows-close .eyebrow{font-family:var(--f-script);font-size:clamp(22px,2.6vw,38px);letter-spacing:.01em;text-transform:none;color:var(--ink);margin-bottom:42px;line-height:1}
+  .vows-close__kpis{display:flex;align-items:center;justify-content:center;gap:clamp(28px,4vw,72px);flex-wrap:wrap;margin-bottom:48px}
+  .vows-close__kpi{text-align:center;min-width:160px}
+  .vows-close__kpi .num{font-family:var(--f-display);font-weight:300;font-style:italic;font-size:clamp(36px,4.4vw,64px);line-height:.95;letter-spacing:-.02em;color:var(--slate);display:block}
+  .vows-close__kpi .num .unit{font-size:.32em;letter-spacing:.04em;display:inline-block;margin-left:.1em;vertical-align:.7em;opacity:.7;font-style:normal}
+  .vows-close__kpi .cap{margin-top:8px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--driftwood)}
+  .vows-close__sep{width:1px;height:42px;background:var(--rule);align-self:center}
+  .vows-close__cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--ink);transition:gap .4s var(--ease)}
+  .vows-close__cta:hover{gap:18px}
+  @media(max-width:780px){
+    .vows-close__sep{display:none}
+    .vows-close__kpis{flex-direction:column;gap:36px}
+  }
+
+  /* Manifesto — closing brand statement */
+  .manifesto{padding:clamp(120px,14vw,200px) var(--pad-x);background:var(--paper-warm);text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .manifesto__inner{max-width:1080px;margin:0 auto}
+  .manifesto .eyebrow{margin-bottom:32px}
+  .manifesto p{font-family:var(--f-display);font-style:italic;font-weight:300;font-size:clamp(28px,4.4vw,58px);line-height:1.18;letter-spacing:-.012em;color:var(--ink)}
+  .manifesto p strong{font-weight:400;font-style:normal;font-family:var(--f-display);background:linear-gradient(180deg,transparent 60%,var(--blush) 60%);padding:0 .12em}
+
+  /* Journal */
+  .journal{padding:clamp(96px,12vw,180px) var(--pad-x);background:var(--pearl);color:var(--ink)}
+  .journal__head{display:flex;align-items:baseline;justify-content:space-between;max-width:1280px;margin:0 auto 60px}
+  .journal__head h2{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(30px,3.8vw,46px)}
+  .journal__head a{font-family:var(--f-mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--driftwood);border-bottom:1px solid var(--driftwood);padding-bottom:4px}
+  .journal__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:42px;max-width:1280px;margin:0 auto}
+  .article{display:block;color:var(--ink)}
+  .article__media{aspect-ratio:4/3;overflow:hidden;background:var(--sand);margin-bottom:22px;position:relative}
+  .article__media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s var(--ease);filter:saturate(.95)}
+  .article:hover .article__media img{transform:scale(1.05);filter:saturate(1.05)}
+  .article__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 70%,rgba(0,0,0,.25) 100%);pointer-events:none}
+  .article time{font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--driftwood);display:block;margin-bottom:14px}
+  .article h3{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.3;transition:color .4s var(--ease)}
+  .article:hover h3{color:var(--slate)}
+  @media (max-width:780px){.journal__grid{grid-template-columns:1fr;gap:36px}}
+
+  /* Contact */
+  .contact{padding:clamp(96px,12vw,180px) var(--pad-x);background:var(--paper-warm)}
+  .contact__inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,90px);align-items:center}
+  .contact__photo{aspect-ratio:4/5;overflow:hidden;background:var(--pearl);position:relative}
+  .contact__photo img{width:100%;height:100%;object-fit:cover}
+  .contact__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(0,0,0,.4) 100%)}
+  .contact__photo .credit{position:absolute;left:18px;bottom:18px;z-index:2;color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;line-height:1.55}
+  .contact__photo .credit strong{display:block;font-family:var(--f-display);font-style:italic;font-weight:400;font-size:20px;letter-spacing:0;text-transform:none;margin-bottom:4px}
+  .contact h2{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(34px,4.5vw,60px);line-height:1.08;margin-bottom:24px}
+  .contact p{font-size:16px;line-height:1.7;opacity:.85;margin-bottom:14px}
+  .contact__lines{margin-top:34px;padding-top:28px;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:14px}
+  .contact__lines a{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;color:var(--ink);position:relative;width:fit-content}
+  .contact__lines a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform-origin:left;transform:scaleX(0);transition:transform var(--t) var(--ease)}
+  .contact__lines a:hover::after{transform:scaleX(1)}
+  .contact__lines label{font-family:var(--f-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--driftwood);margin-bottom:-8px}
+  @media (max-width:780px){
+    .contact__inner{grid-template-columns:1fr;gap:40px}
+    .contact__photo{max-width:420px;margin:0 auto}
+  }
+
+  /* Footer */
+  footer{padding:60px var(--pad-x) 40px;background:var(--slate-darker);color:rgba(255,255,255,.75);font-size:13px}
+  @media(max-width:780px){
+    .footer__row{flex-direction:column;gap:36px}
+    .footer__base{flex-direction:column;align-items:flex-start;gap:8px;text-align:left}
+    .footer__brand{font-size:26px}
+  }
+  .footer__row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;max-width:1280px;margin:0 auto 30px}
+  .footer__brand{font-family:var(--f-script);font-size:32px;color:#fff;line-height:1}
+  .footer__brand small{display:block;font-family:var(--f-mono);font-size:9px;letter-spacing:.32em;margin-top:8px;opacity:.6}
+  .footer__col h5{font-family:var(--f-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+  .footer__col a{display:block;padding:3px 0;color:rgba(255,255,255,.8)}
+  .footer__col a:hover{color:#fff}
+  .footer__base{max-width:1280px;margin:0 auto;border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 </style>
 </head>
 <body>
 
-<!-- ===== TOP NAV ===== -->
+<!-- TOPBAR -->
 <nav class="topbar" id="topbar">
-  <a href="#" class="topbar__brand">Ananta</a>
+  <a href="#" class="topbar__brand">Ananta <small>· BOUTIQUE BALI</small></a>
   <div class="topbar__nav">
     <a href="#collection">Collection</a>
-    <a href="#invest">Invest</a>
-    <a href="#stay">Stay</a>
     <a href="#partners">Partners</a>
     <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#journal">Journal</a>
   </div>
-  <a href="#invest" class="topbar__cta">Investor Pack ↓</a>
+  <div style="display:flex;gap:18px;align-items:center">
+    <span class="topbar__lang">EN&nbsp;·&nbsp;<a href="#" style="opacity:.5">CS</a></span>
+    <a href="#contact" class="topbar__cta">Contact</a>
+  </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <header class="hero">
-  <video class="hero__video" src="./hero_bali_sunset.mp4" autoplay muted loop playsinline webkit-playsinline="true" preload="auto"></video>
+  <div class="hero__rotation" id="heroRotation">
+    <video class="is-active" src="./hero_bali_sunset.mp4" autoplay muted loop playsinline webkit-playsinline="true" preload="auto"></video>
+    <video src="./hero_bali_beach.mp4" muted loop playsinline webkit-playsinline="true" preload="none"></video>
+    <video src="./hero_bali_sunset_m.mp4" muted loop playsinline webkit-playsinline="true" preload="none"></video>
+  </div>
   <div class="hero__veil"></div>
   <div class="hero__inner">
     <h1 class="hero__wordmark">Ananta</h1>
-    <span class="hero__subline">Boutique Bali</span>
-    <p class="hero__claim">A boutique resort brand in Bali.<br>Built to own. Run to pay.</p>
-    <a href="#collection" class="hero__cta">Explore the collection →</a>
+    <span class="hero__reg">A BOUTIQUE RESORT BRAND · BALI · EST. MMXXVII</span>
   </div>
-  <div class="hero__stats">
-    <span><strong>2</strong>Projects</span>
-    <span><strong>44</strong>Units</span>
-    <span><strong>$191k</strong>Entry</span>
-  </div>
+  <div class="hero__scroll">Scroll</div>
 </header>
 
-<!-- ===== BRAND INTRO ===== -->
-<section class="brand">
-  <div class="brand__inner">
-    <div class="eyebrow">The brand</div>
-    <h2>Ananta is a small <em>collection of resort residences</em> on Bali — branded, built, and operated end to end. Owners hold a deed; we run the lobby, the linens, and the books.</h2>
-    <div class="brand__meta">
-      <span><strong>THIERRA</strong><em>Built by</em></span>
-      <span><strong>FIPOX</strong><em>Backed by</em></span>
-      <span><strong>2027</strong><em>First handover</em></span>
+<!-- PROLOG -->
+<section class="prolog">
+  <div class="eyebrow">A boutique resort brand from Bali</div>
+  <h2>Built to own. Run to pay.</h2>
+  <p>Ananta is a small collection of resort residences on Bali — branded, built, and operated end to end. Owners hold a deed; we run the lobby, the linens, and the books.</p>
+  <p>Two projects on Bali, two stages — one in construction, one in preparation. Each Ananta is fully designed, fully managed, fully ours from architecture to morning coffee.</p>
+  <div class="stats">
+    <div><strong>2</strong><span>Projects on Bali</span></div>
+    <div><strong>44</strong><span>Units in build &amp; preparation</span></div>
+    <div><strong>From $191k</strong><span>Entry to ownership</span></div>
+  </div>
+</section>
+
+<!-- COLLECTION SEASON -->
+<!-- BUILD STAGE LEAD-IN -->
+<section class="season season--summer">
+  <div class="season__sticky">
+    <video class="season__bg" id="tropicsBg" src="./hero_bali_beach.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <div class="season__veil"></div>
+    <div class="season__title">
+      <div class="season__kicker">The collection · 2026</div>
+      <h2>Two projects on Bali.</h2>
     </div>
   </div>
 </section>
 
-<!-- ===== COLLECTION ===== -->
-<section class="collection" id="collection">
-  <div class="section__head">
-    <div class="eyebrow">The collection</div>
-    <h2>Two projects on Bali, two stages</h2>
-    <p>Currently building one. Preparing another. Each Ananta is fully designed, fully managed, fully ours from architecture to morning coffee.</p>
-  </div>
-
-  <!-- PROJECT 01 — IN CONSTRUCTION -->
-  <a class="project" href="https://pauly-ceo.github.io/ananta-villas-assets/" target="_blank" rel="noopener">
-    <div class="project__media">
-      <div class="project__status construction">In construction</div>
-      <img src="https://pauly-ceo.github.io/ananta-villas-assets/render-facade.jpg" alt="Ananta Villas Bukit — render" loading="lazy">
+<!-- SUMMER SEASON --><!-- (placeholder so summer block parser stays consistent) -->
+<section class="season season--summer">
+  <div class="season__sticky">
+    <video class="season__bg" id="summerBg" src="./web_bali_beach_sunset.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <div class="season__veil"></div>
+    <div class="season__title">
+      <div class="season__kicker">Chapter II · Summer</div>
+      <h2>Summer never sleeps.</h2>
     </div>
-    <div class="project__body">
-      <div class="project__index">N°01 · Bukit</div>
-      <h3 class="project__name">Ananta Villas</h3>
-      <p class="project__lead">Eight private villas on the Bukit cliffs, designed by Studio Identity Designers — one of eight still available.</p>
-      <ul class="project__meta">
-        <li><span>Location</span>Desa Kutuh, Nusa Dua</li>
-        <li><span>Type</span>Private freehold villas</li>
-        <li><span>Inventory</span>1 of 8 remains</li>
-        <li><span>Handover</span>2027</li>
-      </ul>
-      <span class="project__cta">View project →</span>
-    </div>
-  </a>
-
-  <!-- PROJECT 02 — IN PREPARATION -->
-  <a class="project" href="https://pauly-ceo.github.io/ananta-canggu-assets/" target="_blank" rel="noopener">
-    <div class="project__media">
-      <div class="project__status preparation">In preparation</div>
-      <img src="https://pauly-ceo.github.io/ananta-canggu-assets/render-rooftop.jpg" alt="Ananta Canggu — render" loading="lazy">
-    </div>
-    <div class="project__body">
-      <div class="project__index">N°02 · Canggu</div>
-      <h3 class="project__name">Ananta Canggu</h3>
-      <p class="project__lead">Thirty-six branded residences in Padang Linjong — surf to the west, rice fields to the east, our operator on every floor.</p>
-      <ul class="project__meta">
-        <li><span>Location</span>Padang Linjong, Canggu</li>
-        <li><span>Type</span>Branded residences (36 units)</li>
-        <li><span>Entry</span>From $191,000</li>
-        <li><span>Keys</span>Q2 2028</li>
-      </ul>
-      <span class="project__cta">View project →</span>
-    </div>
-  </a>
-</section>
-
-<!-- ===== INVEST ===== -->
-<section class="invest" id="invest">
-  <div class="section__head">
-    <div class="eyebrow">The investment</div>
-    <h2>A second home that pays rent — and holds value</h2>
-    <p>Ananta is built for ownership that earns. Operator-run, end-to-end, with year-round occupancy and a single party accountable for both the asset and the income.</p>
-  </div>
-
-  <div class="invest__kpis">
-    <div class="invest__kpi">
-      <span class="num">9–13<span class="unit">%</span></span>
-      <div class="cap">Net yield, p.a.</div>
-    </div>
-    <div class="invest__kpi">
-      <span class="num">70<span class="unit">%</span></span>
-      <div class="cap">Year-round occupancy</div>
-    </div>
-    <div class="invest__kpi">
-      <span class="num">End–to–end</span>
-      <div class="cap">Operator-run, every unit</div>
-    </div>
-  </div>
-
-  <div class="invest__faq">
-    <details>
-      <summary>Yields, occupancy, and the unit economics</summary>
-      <p>Net yields of 9–13% per annum are modeled at 70% year-round occupancy, with operator fee, OPEX, replacement reserve, and tax already deducted. Distributions are quarterly. We publish a full pro forma per unit on request — written, not whispered.</p>
-    </details>
-    <details>
-      <summary>How a purchase actually works</summary>
-      <p>Four steps: reservation deposit → SPA → milestone payments through construction → handover. Foreign ownership is structured via PT PMA (Canggu, branded residences) or 80-year leasehold with extension (Villas Bukit). Notary, escrow, and tax are arranged by us, paid by you.</p>
-    </details>
-    <details>
-      <summary>Who runs it after you own it</summary>
-      <p>Ananta is operated end-to-end by our in-house team — same brand, same standards across all properties. You can stay any week of the year (subject to booking); the rest of the calendar runs as short-stay rental. One contract, one invoice, one number to call.</p>
-    </details>
-  </div>
-
-  <div class="invest__cta">
-    <a href="#contact" class="hero__cta">Request the investor pack →</a>
   </div>
 </section>
 
-<!-- ===== STAY ===== -->
-<section class="stay" id="stay">
-  <div class="section__head">
-    <div class="eyebrow">For guests</div>
-    <h2>Stay before you buy</h2>
-  </div>
-  <div class="stay__inner">
-    <p class="stay__claim">Each Ananta is open to short stays — surf weeks at Canggu, cliff hideaways on Bukit. The fastest way to understand an Ananta is to wake up in one.</p>
-    <a href="mailto:kristyna.pauly@thepersonalresorts.com?subject=Ananta%20%E2%80%94%20stay%20enquiry" class="hero__cta">Enquire about a stay →</a>
-  </div>
+<section class="projects" id="summerProjects">
+  <video class="projects__sticky-bg" src="./web_bali_beach_sunset.mp4" autoplay muted loop playsinline preload="metadata"></video>
+  <div class="projects__grid">
+    <a class="card" href="https://pauly-ceo.github.io/ananta-villas-assets/">
+      <div class="card__media">
+        <div class="card__status selling">1 villa remains</div>
+        <img src="https://www.myresorts.eu/upItems/imgs/mnlt_25_123_FPX_251029_cam_lehkost_FINAL_wide_0002.jpg" alt="Ananta Villas" loading="lazy">
+      </div>
+      <div class="card__overlays">
+        <img class="card__overlay-img" src="https://www.myresorts.eu/upItems/imgs/001/mnlt_25_123_FPX_251029_cam_jungle_FINAL_wide.jpg" alt="Ananta Villas detail" loading="lazy">
+        <img class="card__overlay-img" src="https://www.myresorts.eu/upItems/imgs/001/mnlt_25_123_FPX_251029_cam_relax_FINAL_wide.jpg" alt="Ananta Villas detail" loading="lazy">
+      </div>
+      <div class="card__body">
+        <div class="card__title-block"><h3 class="card__name">Ananta Villas</h3><span class="card__cta-pill">View project</span></div>
+        <ul class="card__meta">
+          <li>Studio Identity Designers</li>
+          <li>Private villas · cliff front</li>
+          <li>Desa Kutuh · Nusa Dua · Bali</li>
+          <li>1 of 8 remains · 2027 handover</li>
+          <li class="card__cta"><span>View project</span></li>
+        </ul>
+      </div>
+    </a>
+    <a class="card" href="https://pauly-ceo.github.io/ananta-canggu-assets/">
+      <div class="card__media">
+        <div class="card__status selling">Selling Now</div>
+        <img src="https://pauly-ceo.github.io/ananta-canggu-assets/render-rooftop.jpg" alt="Ananta Canggu" loading="lazy">
+      </div>
+      <div class="card__overlays">
+        <img class="card__overlay-img" src="https://pauly-ceo.github.io/ananta-canggu-assets/render-facade.jpg" alt="Ananta Canggu detail" loading="lazy">
+        <img class="card__overlay-img" src="https://pauly-ceo.github.io/ananta-canggu-assets/render-bedroom.jpg" alt="Ananta Canggu interior" loading="lazy">
+      </div>
+      <div class="card__body">
+        <div class="card__title-block"><h3 class="card__name">Ananta Canggu</h3><span class="card__cta-pill">View project</span></div>
+        <ul class="card__meta">
+          <li>Identity Designers · THIERRA build</li>
+          <li>Branded residences · 36 units</li>
+          <li>Padang Linjong · Canggu · Bali</li>
+          <li>From $191k · keys Q2 2028</li>
+          <li class="card__cta"><span>View project</span></li>
+        </ul>
+      </div>
+    </a>
+    </div>
 </section>
 
-<!-- ===== PARTNERS ===== -->
+
+<!-- WHY / THREE VOWS — now right after Method -->
+<section class="why" id="about">
+  <div class="why__head">
+    <div class="eyebrow">Three vows</div>
+    <h2>Three vows — to the place, the owner, the guest.</h2>
+  </div>
+  <div class="why__grid">
+    <div class="vow">
+      <figure><img src="https://www.myresorts.eu/upItems/imgs/krajinka_full_0001.jpg" alt="To the place" loading="lazy"></figure>
+      <div class="vow__text">
+        <h3>I · To the place</h3>
+        <h4>Originality from the genius of place.</h4>
+        <p>Ananta lives where it was born — the cliffs of Bukit, the rice fields of Canggu. We work with architects who design <em>for</em> the place, not against it: open air, monsoon-ready, walkable from beach to villa.</p>
+      </div>
+    </div>
+    <div class="vow">
+      <figure><img src="https://www.myresorts.eu/upItems/imgs/LS_POHLED_PREDZAHRADKA_4K_full.jpg" alt="To the owner" loading="lazy"></figure>
+      <div class="vow__text">
+        <h3>II · To the owner</h3>
+        <h4>Long-term durability and yield.</h4>
+        <p>Operator-run end to end. Same team designs the unit, signs the deed, and runs the booking — net yield 9–13% p.a. on a 70% year-round occupancy model. One contract, one number to call.</p>
+      </div>
+    </div>
+    <div class="vow">
+      <figure><img src="https://www.myresorts.eu/upItems/imgs/DOMOPLAN_LESNI_STRANE_5_full.jpg" alt="To the guest" loading="lazy"></figure>
+      <div class="vow__text">
+        <h3>III · To the guest</h3>
+        <h4>Something extra in every stay.</h4>
+        <p>Resorts that offer guests something more — a story, a ritual, a quiet corner — that's worth coming back for. The kind of detail that turns a stay into a memory.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PARTNERS -->
 <section class="partners" id="partners">
   <div class="partners__inner">
-    <div class="section__head">
-      <div class="eyebrow">Our network</div>
-      <h2>Partner agents across Europe and the Gulf</h2>
-      <p>Ananta is sold through a small network of vetted real-estate partners. Live in three markets today — opening another twenty.</p>
-    </div>
+    <div class="eyebrow">For agencies &amp; brokers</div>
+    <h2>Sell with us.</h2>
+    <p>We open every project to a small, named panel of agencies. Non-exclusive, commission 2.5 to 5%, paid within 30 days of the buyer's first instalment. We provide the sales book, the renders, the floor plans, the yield model, and a briefing for your team. You bring the buyer.</p>
+    <a href="mailto:kristyna.pauly@thepersonalresorts.com?subject=Sales%20partnership%20enquiry" class="partners__btn">Become a partner →</a>
 
-    <div class="partners__map">
-      <div class="partners__map-title">Live coverage · 2 markets · expanding</div>
-      <!-- Stylizovaná SVG mapa Evropy + UAE (zjednodušená) -->
-      <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-label="Partner coverage map">
-        <!-- Europe simplified blob -->
-        <path class="country" d="M120,180 L180,150 L260,140 L340,130 L420,140 L480,160 L520,200 L540,250 L520,310 L470,360 L380,390 L290,380 L210,360 L150,310 L120,260 Z"/>
-        <!-- Czech Republic highlighted -->
-        <path class="country has-agent" d="M310,210 L355,205 L370,235 L355,260 L320,265 L300,240 Z"/>
-        <!-- UAE highlighted -->
-        <ellipse class="country has-agent" cx="640" cy="340" rx="38" ry="22"/>
-        <!-- Labels -->
-        <text x="335" y="245" font-family="JetBrains Mono" font-size="10" fill="#C9A87C" text-anchor="middle" letter-spacing="2">CZ</text>
-        <text x="640" y="345" font-family="JetBrains Mono" font-size="10" fill="#C9A87C" text-anchor="middle" letter-spacing="2">UAE</text>
-      </svg>
-    </div>
-
-    <div class="partners__grid">
-      <div class="partner">
-        <div class="partner__flag">Czech Republic · in-house</div>
-        <div class="partner__name">Kristýna Pauly</div>
-        <div class="partner__role">Head of Sales, Ananta. Central Europe, family offices, direct investors.</div>
-        <a href="mailto:kristyna.pauly@thepersonalresorts.com" class="partner__link">kristyna.pauly@…</a>
-      </div>
-      <div class="partner">
-        <div class="partner__flag">Czech Republic · partner</div>
-        <div class="partner__name">M&amp;M Reality</div>
-        <div class="partner__role">Largest residential brokerage in Czechia — 200+ branches, retail and HNW desks.</div>
-        <a href="https://www.mmreality.cz/" target="_blank" rel="noopener" class="partner__link">mmreality.cz →</a>
-      </div>
-      <div class="partner">
-        <div class="partner__flag">UAE · partner</div>
-        <div class="partner__name">Buy Dubai</div>
-        <div class="partner__role">Dubai-based investment brokerage serving CZ/SK clients across the Gulf.</div>
-        <a href="https://www.buydubai.cz/" target="_blank" rel="noopener" class="partner__link">buydubai.cz →</a>
-      </div>
-    </div>
-
-    <div class="partners__cta">
-      <a href="mailto:kristyna.pauly@thepersonalresorts.com?subject=Ananta%20%E2%80%94%20partner%20programme">Become a partner →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section class="about" id="about">
-  <div class="about__inner">
-    <div class="about__copy">
-      <div class="eyebrow">About Ananta</div>
-      <h2>A small brand, built by people who finish what they start.</h2>
-      <p>Ananta was built by the same team behind two decades of residential and resort development across Central Europe and Southeast Asia. We design, build, sell, and operate — one team, one accountability line, no handoffs.</p>
-      <p>The brand is wholly owned and capitalised by FIPOX, a private investment group. Construction is delivered by THIERRA. Operations are in-house under the Ananta name.</p>
-      <div class="about__credits">
-        <span><strong>THIERRA</strong><em>General contractor</em></span>
-        <span><strong>FIPOX</strong><em>Owner &amp; investor</em></span>
-      </div>
-    </div>
-    <div class="about__team">
-      <div class="team-card">
-        <div class="team-card__name">Kristýna Pauly</div>
-        <div class="team-card__role">CEO · Sales &amp; Brand</div>
-      </div>
-      <div class="team-card">
-        <div class="team-card__name">Tomáš Vavřík</div>
-        <div class="team-card__role">CEO · Construction</div>
-      </div>
-      <div class="team-card">
-        <div class="team-card__name">Jan Pauly</div>
-        <div class="team-card__role">CEO · Investment</div>
-      </div>
-      <div class="team-card">
-        <div class="team-card__name">In-house operator</div>
-        <div class="team-card__role">Property &amp; rental management</div>
+    <div class="partners__panel">
+      <div class="eyebrow">In good company</div>
+      <div class="partners__list">
+        <a href="https://www.mmreality.cz/" target="_blank" rel="noopener">M&amp;M Reality</a>
+        <span class="sep">·</span>
+        <a href="https://www.buydubai.cz/" target="_blank" rel="noopener">Buy Dubai</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== JOURNAL ===== -->
+<!-- JOURNAL -->
 <section class="journal" id="journal">
-  <div class="section__head">
-    <div class="eyebrow">Journal</div>
-    <h2>Notes from the build</h2>
-    <p>Press, podcasts, and progress reports from Bali — and the people behind Ananta.</p>
+  <div class="journal__head">
+    <h2>Journal</h2>
+    <a href="https://www.myresorts.eu/cs/aktuality" target="_blank" rel="noopener">All entries →</a>
   </div>
   <div class="journal__grid">
     <a class="article" href="https://www.facebook.com/MyResorts.eu/posts/pfbid0KB1P4EPdjqjxAma4w1Ymbik4TAfiKnhuwutQTtfy2K8rGnakyQ8fgXfEqXoJk656l" target="_blank" rel="noopener">
+      <div class="article__media"><img src="https://pauly-ceo.github.io/ananta-canggu-assets/render-rooftop.jpg" alt="Bali report" loading="lazy"></div>
       <time>15 June 2026</time>
-      <h3>A report from Bali</h3>
-      <p>Foundations poured at Ananta Villas, model unit framing underway. Pictures and notes from a site visit.</p>
+      <h3>A report from Bali — and not only from the Ananta Villas build.</h3>
     </a>
     <a class="article" href="https://www.newstream.cz/reality/domoplan-hleda-novy-motor-rustu-vedle-bytu-chce-vydelavat-na-resortech" target="_blank" rel="noopener">
+      <div class="article__media"><img src="https://www.newstream.cz/uploads/article/1200x630_exact/jadran.jpg" alt="Domoplan resorts — Newstream cover" loading="lazy"></div>
       <time>02 June 2026</time>
-      <h3>Property as a service</h3>
-      <p>Tomáš Vavřík talks Ananta strategy — why a built-to-rent boutique brand makes sense on Bali, on Newstream.</p>
+      <h3>Property as a service. Tomáš Vavřík on the Ananta strategy — Newstream podcast.</h3>
     </a>
     <a class="article" href="https://www.newstream.cz/reality/bali-misto-smichova-cesti-investori-kupuji-vily-na-druhem-konci-sveta" target="_blank" rel="noopener">
+      <div class="article__media"><img src="https://www.newstream.cz/uploads/article/1200x630_exact/1-1-.jpeg" alt="Vila na Bali — Newstream cover" loading="lazy"></div>
       <time>20 May 2026</time>
-      <h3>Czech investors go Bali</h3>
-      <p>The first Bukit villas sold out in weeks. What's next in Indonesia for Ananta and its buyers.</p>
+      <h3>Our first Bali villas are sold out. What's next in Indonesia.</h3>
     </a>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact__inner">
     <div class="contact__photo">
       <img src="./kristyna.jpg" alt="Kristýna Pauly — CEO, Ananta">
-      <div class="contact__photo-credit">
-        <strong>Kristýna Pauly</strong>
-        <span>CEO · Ananta</span>
-      </div>
+      <div class="credit"><strong>Kristýna Pauly</strong>CEO · Ananta</div>
     </div>
-    <div class="contact__copy">
-      <div class="eyebrow">Talk to us</div>
-      <h2>Direct line, not a form farm.</h2>
-      <p>Whether you're buying a villa, booking a stay, or partnering as an agent — Kristýna is the first call. Same-day reply, written or live.</p>
-      <ul class="contact__list">
-        <li>
-          <span>Email</span>
-          <a href="mailto:kristyna.pauly@thepersonalresorts.com">kristyna.pauly@thepersonalresorts.com</a>
-        </li>
-        <li>
-          <span>Phone · Whatsapp</span>
-          <a href="tel:+420607207207">+420 607 207 207</a>
-        </li>
-        <li>
-          <span>Office</span>
-          <a href="https://maps.google.com/?q=Kollárova+3150/2,+612+00+Brno" target="_blank" rel="noopener">Kollárova 3150/2 · 612 00 Brno · Czech Republic</a>
-        </li>
-      </ul>
+    <div>
+      <div class="eyebrow">Want in?</div>
+      <h2>Speak with us about owning a villa on Bukit — or a residence in Canggu.</h2>
+      <p>Tell us which project fits — Bukit cliffs or Canggu surf — and we'll send you the deck, the price list, and the yield model. Direct line, written or live, same-day reply.</p>
+      <p>Sales partners, agencies and brokers welcome on the same line.</p>
+      <div class="contact__lines">
+        <label>Email</label>
+        <a href="mailto:kristyna.pauly@thepersonalresorts.com">kristyna.pauly@thepersonalresorts.com</a>
+        <label>Phone</label>
+        <a href="tel:+420607207207">+420 607 207 207</a>
+        <label>Office</label>
+        <a href="https://maps.google.com/?q=Kollárova+3150/2,+612+00+Brno">Kollárova 3150/2 · 612 00 Brno · CZ</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="footer__inner">
+<!-- FOOTER -->
+<footer>
+  <div class="footer__row">
+    <div class="footer__brand">Ananta<small>EST. MMXXVII · BUILT BY THIERRA · BACKED BY FIPOX</small></div>
     <div class="footer__col">
-      <div class="footer__brand">Ananta</div>
-      <div class="footer__brand-line">A Boutique Resort Brand · Bali</div>
-    </div>
-    <div class="footer__col">
-      <h4>Collection</h4>
+      <h5>Collection</h5>
       <a href="https://pauly-ceo.github.io/ananta-villas-assets/" target="_blank">Ananta Villas, Bukit</a>
       <a href="https://pauly-ceo.github.io/ananta-canggu-assets/" target="_blank">Ananta Canggu</a>
     </div>
     <div class="footer__col">
-      <h4>Company</h4>
-      <a href="#about">About</a>
-      <a href="#partners">Partner agents</a>
-      <a href="#journal">Journal</a>
-      <a href="#contact">Contact</a>
+      <h5>Brand</h5>
+      <a href="#">About</a>
+      <a href="#">Method</a>
+      <a href="#">Journal</a>
+      <a href="#">Partners</a>
     </div>
     <div class="footer__col">
-      <h4>Contact</h4>
-      <a href="mailto:kristyna.pauly@thepersonalresorts.com">Email</a>
+      <h5>Contact</h5>
       <a href="tel:+420607207207">+420 607 207 207</a>
-      <a href="https://maps.google.com/?q=Kollárova+3150/2,+612+00+Brno" target="_blank">Brno · CZ</a>
+      <a href="mailto:kristyna.pauly@thepersonalresorts.com">kristyna.pauly@thepersonalresorts.com</a>
+      <a href="#">Kollárova 3150/2, 612 00 Brno</a>
     </div>
   </div>
-  <div class="footer__bottom">
+  <div class="footer__base">
     <span>© 2026 Ananta · Built by THIERRA · Backed by FIPOX</span>
-    <span>ananta.com</span>
+    <span>EN · CS</span>
   </div>
 </footer>
 
 <script>
-// Topbar solid on scroll
-const topbar=document.getElementById('topbar');
-window.addEventListener('scroll',()=>{
-  topbar.classList.toggle('solid',window.scrollY>100);
-},{passive:true});
+  // Font loading: signal until Brother Signature is loaded (vyhne se FOUT na hero wordmarku)
+  (function(){
+    const ready=()=>document.documentElement.classList.add('fonts-ready');
+    if(document.fonts && document.fonts.load){
+      Promise.all([
+        document.fonts.load('1em "Brother Signature"'),
+        document.fonts.load('100px "Brother Signature"')
+      ]).then(ready, ready);
+      // pojistka — pokud font po 2.5s nedorazí, ukaž stejně (fallback)
+      setTimeout(ready, 2500);
+    } else {
+      ready();
+    }
+  })();
 
-// Force-play hero video on iOS
-(function(){
-  const v=document.querySelector('.hero__video');
-  if(!v) return;
-  const kick=()=>{try{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}};
-  kick();
-  document.addEventListener('touchstart',kick,{passive:true,once:true});
-  document.addEventListener('scroll',kick,{passive:true,once:true});
-})();
+  // Topbar solid on scroll
+  const topbar=document.getElementById('topbar');
+  const heroH=()=>document.querySelector('.hero').offsetHeight-80;
+  window.addEventListener('scroll',()=>{topbar.classList.toggle('solid',window.scrollY>heroH())},{passive:true});
+
+  // Hero video rotation: switch every 4s, fade. Force-play on iOS Safari.
+  (function(){
+    const videos=document.querySelectorAll('#heroRotation video');
+    if(!videos.length) return;
+    // Kick the first video — autoplay alone is unreliable on iOS Safari
+    const kick=v=>{ try{ v.muted=true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }catch(e){} };
+    kick(videos[0]);
+    // Backup: any user touch/scroll unblocks autoplay
+    const unlock=()=>{ kick(videos[0]); document.removeEventListener('touchstart',unlock); document.removeEventListener('scroll',unlock); };
+    document.addEventListener('touchstart',unlock,{passive:true,once:true});
+    document.addEventListener('scroll',unlock,{passive:true,once:true});
+    let i=0;
+    setInterval(()=>{
+      videos[i].classList.remove('is-active');
+      i=(i+1)%videos.length;
+      // Lazy-load next: set preload so it actually downloads, then play
+      const next=videos[i];
+      if(next.preload!=='auto'){ next.preload='auto'; next.load(); }
+      next.classList.add('is-active');
+      kick(next);
+    },4000);
+  })();
+
+  // Seasons loop (between Invest and Method): 4 videos, 4s each
+  (function(){
+    const videos=document.querySelectorAll('.seasons-loop video');
+    if(!videos.length) return;
+    let i=0;
+    setInterval(()=>{
+      videos[i].classList.remove('is-active');
+      i=(i+1)%videos.length;
+      videos[i].classList.add('is-active');
+    },4000);
+  })();
+
+  // Investment KPI count-up on scroll-in
+  (function(){
+    const kpis=document.querySelectorAll('.invest__kpi .num[data-count]');
+    if(!kpis.length||!('IntersectionObserver' in window))return;
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(!e.isIntersecting)return;
+        const el=e.target;
+        const to=parseInt(el.dataset.count,10);
+        const from=parseInt(el.dataset.from||0,10);
+        const suffix=el.dataset.suffix||'';
+        const dur=1400;
+        const start=performance.now();
+        const tick=(t)=>{
+          const p=Math.min(1,(t-start)/dur);
+          const eased=1-Math.pow(1-p,3);
+          const val=Math.round(from+(to-from)*eased);
+          el.innerHTML=(el.dataset.from?from+'&ndash;'+val:''+val)+'<span class="unit">'+suffix+'</span>';
+          if(p<1)requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    },{threshold:.4});
+    kpis.forEach(k=>io.observe(k));
+  })();
+
+  // Card reveal on scroll-in (IntersectionObserver)
+  (function(){
+    const cards=document.querySelectorAll('.card');
+    if(!('IntersectionObserver' in window)){cards.forEach(c=>c.classList.add('in-view'));return}
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}
+      });
+    },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+    cards.forEach(c=>io.observe(c));
+  })();
+
+  // Parallax season video backgrounds — subtle scale-zoom while in viewport
+  (function(){
+    const winterBg=document.getElementById('winterBg');
+    const summerBg=document.getElementById('summerBg');
+    function update(){
+      const wRect=document.querySelector('.season--winter').getBoundingClientRect();
+      const sRect=document.querySelector('.season--summer').getBoundingClientRect();
+      // Small parallax: counter-translate ~20% of section scroll
+      const wY=wRect.top*-.18;
+      const sY=sRect.top*-.18;
+      winterBg.style.transform=`translate3d(0,${wY}px,0) scale(1.08)`;
+      summerBg.style.transform=`translate3d(0,${sY}px,0) scale(1.08)`;
+    }
+    update();
+    window.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update,{passive:true});
+    // Ensure videos start playing (mobile sometimes needs nudge)
+    document.querySelectorAll('video').forEach(v=>{const p=v.play();if(p&&p.catch)p.catch(()=>{});});
+  })();
 </script>
-
 </body>
 </html>
