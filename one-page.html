@@ -3297,14 +3297,9 @@
 const isMobile = window.matchMedia('(max-width:768px)').matches || window.matchMedia('(hover:none)').matches || window.matchMedia('(pointer:coarse)').matches;
 const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const nav = document.getElementById('nav');
-const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 40); };
-window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+// nav handler removed — onepager (no #nav in this scope)
 
-const burger = document.getElementById('burger'), mm = document.getElementById('mm'), mmx = document.getElementById('mmx');
-burger.addEventListener('click', ()=> mm.classList.add('open'));
-mmx.addEventListener('click', ()=> mm.classList.remove('open'));
-mm.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mm.classList.remove('open')));
+// burger/mm handlers removed — onepager
 
 const reveals = document.querySelectorAll('.reveal');
 if(!isMobile && !prefersReduce && 'IntersectionObserver' in window){
@@ -3322,14 +3317,9 @@ if(!isMobile && !prefersReduce && 'IntersectionObserver' in window){
 const isMobile = window.matchMedia('(max-width:768px)').matches || window.matchMedia('(hover:none)').matches || window.matchMedia('(pointer:coarse)').matches;
 const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const nav = document.getElementById('nav');
-const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 40); };
-window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+// nav handler removed — onepager (no #nav in this scope)
 
-const burger = document.getElementById('burger'), mm = document.getElementById('mm'), mmx = document.getElementById('mmx');
-burger.addEventListener('click', ()=> mm.classList.add('open'));
-mmx.addEventListener('click', ()=> mm.classList.remove('open'));
-mm.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mm.classList.remove('open')));
+// burger/mm handlers removed — onepager
 
 const reveals = document.querySelectorAll('.reveal');
 if(!isMobile && !prefersReduce && 'IntersectionObserver' in window){
@@ -3337,25 +3327,7 @@ if(!isMobile && !prefersReduce && 'IntersectionObserver' in window){
   reveals.forEach(r=> io.observe(r));
 } else { reveals.forEach(r=> r.classList.add('in')); }
 
-// Modal investor pack
-const pack = document.getElementById('pack');
-const openPack = document.getElementById('openPack');
-const packX = document.getElementById('packX');
-const packF = document.getElementById('packF');
-const packForm = document.getElementById('packForm');
-const packSuccess = document.getElementById('packSuccess');
-openPack.addEventListener('click', ()=> pack.classList.add('open'));
-packX.addEventListener('click', ()=> { pack.classList.remove('open'); setTimeout(()=>{ packForm.style.display=''; packSuccess.style.display='none'; packF.reset(); }, 400); });
-pack.addEventListener('click', (e)=> { if(e.target===pack) packX.click(); });
-packF.addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  const data = { name: document.getElementById('pn').value, email: document.getElementById('pe').value, country: document.getElementById('pc').value, project: 'Ananta Canggu', timestamp: new Date().toISOString() };
-  try{
-    await fetch('https://default9c77dc951a604ba88c7a7ce2c0edde.26.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/1cdbad07114741dd8d7b527877225428/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=2aP8kayrE0UZObHPtsaOlzk9B-fymMZWpEuWzTOg87M', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-  } catch(err){}
-  packForm.style.display='none';
-  packSuccess.style.display='block';
-});
+// modal pack removed — onepager
 
 
 })();
