@@ -185,7 +185,7 @@
     height:220vh; /* total scroll length per project */
     background:#091D1E;
     text-decoration:none;color:var(--paper);
-    overflow:visible;
+    overflow:clip; /* v3.16e — clip sticky children at card boundary (prevents overlap with next card) */
   }
   /* Status badge top of card */
 
