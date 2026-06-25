@@ -1,0 +1,5 @@
+# CZ skryta pro EN-only launch. Docasny 302 (NE 301) - CZ se vrati, az Bara doda
+# poradnou textaci, takze cs.html zustavaji v repu a nechceme redirect zacementovat.
+# Cloudflare Pages: _redirects ma prednost i nad existujicim staticky souborem.
+/villas/cs.html      /villas/      302
+/apartments/cs.html  /apartments/  302
