@@ -48,11 +48,15 @@ indexace (SEO) a konverze přes lead capture.
   podstránkách funkční EN↔CZ přepínač, back-link z CZ vede na landing `/`.
 - **SEO + lead konverze jsou důvod existence webu.** Nesahat na to, co funguje, bez důvodu;
   lead capture (Notion flaguje regresi modal → mailto, ověřit) je konverzní jádro.
-- **Po každém push/deploy připiš datovaný řádek do Notion Deníku** (page ID
-  `3882144dc98081608b6add12b144ddb6`), append-only na konec stránky, jen git/code fakta
-  (co se reálně změnilo v kódu/gitu, commit hash, push/deploy). NE rozhodnutí ani stav.
-  Status bloky na Bali stránce (ID `37f2144dc98081cbb953c31c17d9baf3`) NEEDITOVAT, ty
-  píše Browser Claude (ať se nepřepisujeme).
+- **Po každém push/deploy připiš datovaný blok do Notion Deníku** (page ID
+  `3882144dc98081608b6add12b144ddb6`). Konvence stránky = nejnovější nahoře, takže blok
+  vkládej HNED pod `---` za intro/Pravidlo. Mechanika: `update_content` s
+  `old_str = "---"`, `new_str = "---\n## <datum> (Claude Code)\n<bullety>"` (to `---` je
+  na stránce jediné a stabilní, slouží jako kotva). NE `position:start` (dalo by to nad
+  intro), NE append na konec. Cizí existující zápisy NEEDITUJ (to je smysl append-only).
+  Obsah: jen git/code fakta (co se reálně změnilo, commit hash, push/deploy), NE rozhodnutí
+  ani stav. Status bloky na Bali stránce (ID `37f2144dc98081cbb953c31c17d9baf3`) NEEDITUJ,
+  ty píše Browser Claude (ať se nepřepisujeme).
 
 ## Kontext a odkazy
 
