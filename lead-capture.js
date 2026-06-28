@@ -1,7 +1,7 @@
 /* lead-capture.js — one shared handler for every Ananta lead form (landing, villas,
    apartments). Keeps the three EN pages in sync: same submit logic, same Turnstile sitekey,
    same consent version. Posts to /api/lead (the CF Pages Function at functions/api/lead.js),
-   which holds the Power Automate token server-side. The PA URL and sig token must NEVER
+   which holds the lead destination + secret server-side. No webhook URL or secret must EVER
    appear in this file or any page.
    See council verdict on the Notion Bali page (update 26.6.2026).
 

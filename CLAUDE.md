@@ -67,8 +67,9 @@ indexace (SEO) a konverze přes lead capture.
   mail `makemerich@thepersonalresorts.com` vlastní org, hosting i analytiku.
 - **Lidé:** David reportuje Honzovi. Business owner Kristýna Pauly (CEO The Personal
   Resorts Bali). CZ je primární publikum (Central Europe, PR česky).
-- **Plánováno:** Plausible (cookie-free) analytika, lead data přes Power Automate do
-  `Ananta_Leads.xlsx`. Custom doména + DNS + Plausible až po čistém merge a CF účtu.
+- **Plánováno:** Plausible (cookie-free) analytika. Lead data jdou přes `/api/lead` (CF Pages
+  Function) do Google Sheetu (Apps Script web app); Power Automate/OneDrive odpadlo (premium
+  licence). Custom doména + DNS + Plausible až po čistém merge a CF účtu.
 - **Workflow split:** Claude Code = implementace, git, deploy, pipeline. Browser Claude =
   strategie, Notion, komunikace. Potkáváme se přes Notion, ne přímo.
 

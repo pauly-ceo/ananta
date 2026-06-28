@@ -791,7 +791,7 @@ if(!isMobile && !prefersReduce && 'IntersectionObserver' in window){
   </div>
 </div>
 
-<!-- Lead capture: shared handler + Cloudflare Turnstile. The Power Automate token lives
+<!-- Lead capture: shared handler + Cloudflare Turnstile. The lead destination + secret live
      server-side in /api/lead — never in client JS. -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit" async defer></script>
 <script src="/lead-capture.js" defer></script>
