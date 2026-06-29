@@ -245,3 +245,12 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .brandintro__img{margin-top:clamp(50px,8vh,100px);width:100%;aspect-ratio:16 / 7;overflow:hidden}
 .brandintro__img img{width:100%;height:100%;object-fit:cover}
 @media(max-width:860px){.brandintro__grid{grid-template-columns:1fr;gap:22px}.brandintro__img{aspect-ratio:16 / 10}}
+
+/* For-investors bridge: the life → the return, with a clear, prominent deck CTA */
+.bridge{text-align:center}
+.bridge__inner{max-width:780px;margin:0 auto}
+.bridge__head{font-size:clamp(32px,5vw,68px);margin-top:8px}
+.bridge__lead{margin:26px auto 0;max-width:52ch;font-size:clamp(16px,1.3vw,19px);color:#473f36}
+.bridge__cta{margin-top:42px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.bridge__cta-note{font-family:var(--sans);font-size:13px;letter-spacing:.01em;color:var(--soft)}
+.btn--lg{padding:19px 42px;font-size:14px}
