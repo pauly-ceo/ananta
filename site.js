@@ -123,6 +123,10 @@
       var vars = { yPercent: 0, duration: 1.15, ease: "power3.out", stagger: 0.09 };
       if (inView) vars.delay = 0.15;
       else vars.scrollTrigger = { trigger: el, start: "top 86%" };
+      // after the line-mask reveal, un-clip the masks so descenders (y, g, p, q) aren't cut off
+      vars.onComplete = function () {
+        targets.forEach(function (l) { if (l && l.parentNode) l.parentNode.style.overflow = "visible"; });
+      };
       gsap.to(targets, vars);
     });
 
