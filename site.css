@@ -9,12 +9,14 @@
 @font-face{font-family:'General Sans';src:url('/fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'General Sans';src:url('/fonts/general-sans-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:'General Sans';src:url('/fonts/general-sans-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/hanken-grotesk-normal.woff2?v=2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/hanken-grotesk-italic.woff2?v=2') format('woff2');font-weight:300 700;font-style:italic;font-display:swap}
 
 :root{
   --cream:#F4EFE8;--cream-2:#EAE2D5;--ink:#1B1712;--soft:#6E655A;--line:#D9CFC1;
   --dark:#14100C;--accent:#9C7B58;
-  --serif:'Fraunces',Georgia,'Times New Roman',serif;
-  --sans:'General Sans',system-ui,-apple-system,sans-serif;
+  --serif:'Hanken Grotesk',system-ui,sans-serif;  /* display family = hba-like grotesk sans (was Fraunces serif) */
+  --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
   --pad:clamp(20px,5vw,90px);--ease:cubic-bezier(.22,.61,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
