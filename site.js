@@ -97,21 +97,18 @@
   // ---------- project showcase: hba-style cover-stack ----------
   // One pinned caption per project. The lead image sits full-bleed; each following
   // (smaller, contained) image slides UP from below to COVER the previous one, which
-  // stays behind dimmed — the soft overlap that reads as a blend. A short hold on the
-  // lead and a longer one after the last image keep it from feeling like one long scroll.
+  // stays behind dimmed — the soft overlap that reads as a blend. The covers run back to
+  // back at one constant pace (no holds/dwells) so the whole sequence flows consistently,
+  // like hba — an image never arrives, stalls and snaps back before the next one moves.
   gsap.utils.toArray("[data-showcase]").forEach(function (sc) {
     var insets = gsap.utils.toArray(sc.querySelectorAll(".showcase__shot--inset"));
     if (!insets.length) return;
     gsap.set(insets, { yPercent: 101 });
     var tl = gsap.timeline({
-      defaults: { ease: "none" },
-      scrollTrigger: { trigger: sc, start: "top top", end: "bottom bottom", scrub: 0.55, invalidateOnRefresh: true }
+      defaults: { ease: "none", duration: 1 },
+      scrollTrigger: { trigger: sc, start: "top top", end: "bottom bottom", scrub: 0.5, invalidateOnRefresh: true }
     });
-    tl.to({}, { duration: 0.26 }); // hold on the lead first
-    insets.forEach(function (shot, i) {
-      tl.to(shot, { yPercent: 0, duration: 1 });
-      tl.to({}, { duration: i === insets.length - 1 ? 0.5 : 0.2 }); // dwell; longer at the end
-    });
+    insets.forEach(function (shot) { tl.to(shot, { yPercent: 0 }); });
   });
 
   // ---------- text + fade reveals (after fonts so line-breaks measure right) ----------
