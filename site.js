@@ -94,18 +94,23 @@
     }
   });
 
-  // ---------- project showcase: pinned caption + vertically scrolling image strip (hba style) ----------
-  // .showcase__sticky pins for the section's height; .showcase__media is a tall strip of image
-  // blocks (lead full-bleed, then inset/smaller) that we translate UP as you scroll — so the
-  // images move past the pinned caption: one big, then the smaller ones. Not a crossfade/wipe.
+  // ---------- project showcase: hba-style cover-stack ----------
+  // One pinned caption per project. The lead image sits full-bleed; each following
+  // (smaller, contained) image slides UP from below to COVER the previous one, which
+  // stays behind dimmed — the soft overlap that reads as a blend. A short hold on the
+  // lead and a longer one after the last image keep it from feeling like one long scroll.
   gsap.utils.toArray("[data-showcase]").forEach(function (sc) {
-    var strip = sc.querySelector(".showcase__media");
-    var sticky = sc.querySelector(".showcase__sticky");
-    if (!strip || !sticky) return;
-    gsap.to(strip, {
-      y: function () { return -(strip.scrollHeight - sticky.offsetHeight); },
-      ease: "none",
-      scrollTrigger: { trigger: sc, start: "top top", end: "bottom bottom", scrub: 0.6, invalidateOnRefresh: true }
+    var insets = gsap.utils.toArray(sc.querySelectorAll(".showcase__shot--inset"));
+    if (!insets.length) return;
+    gsap.set(insets, { yPercent: 101 });
+    var tl = gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: { trigger: sc, start: "top top", end: "bottom bottom", scrub: 0.55, invalidateOnRefresh: true }
+    });
+    tl.to({}, { duration: 0.26 }); // hold on the lead first
+    insets.forEach(function (shot, i) {
+      tl.to(shot, { yPercent: 0, duration: 1 });
+      tl.to({}, { duration: i === insets.length - 1 ? 0.5 : 0.2 }); // dwell; longer at the end
     });
   });
 

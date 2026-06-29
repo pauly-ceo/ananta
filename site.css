@@ -93,22 +93,36 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .project__meta{list-style:none;font-family:var(--sans);font-size:13.5px;letter-spacing:.02em;color:rgba(255,255,255,.82);text-align:right;line-height:1.9}
 .project__cta{display:inline-flex;align-items:center;gap:10px;margin-top:14px;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:5px}
 
-/* project showcase: tall section, sticky panel, images cross-fade on scroll */
-/* Project showcase: pinned caption + vertically scrolling image strip (hba style).
-   .showcase__media is a tall strip translated up by GSAP; lead is full-bleed, the rest
-   are inset (smaller, dark margins). Caption (.showcase__body) is pinned in the sticky viewport. */
-.showcase{position:relative;height:300vh;background:var(--dark)}
-.showcase__sticky{position:sticky;top:0;height:100svh;display:block;overflow:hidden;color:#fff;background:var(--dark)}
-.showcase__media{position:absolute;left:0;right:0;top:0;will-change:transform}
-.showcase__shot{display:block}
-.showcase__shot img{display:block;width:100%;object-fit:cover}
-.showcase__shot--lead img{height:100svh}
-.showcase__shot--inset{padding:7svh clamp(50px,9vw,170px)}
-.showcase__shot--inset img{height:86svh}
-.showcase__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(8,6,4,.34),rgba(8,6,4,0)28%,rgba(8,6,4,0)56%,rgba(8,6,4,.82))}
-.showcase__body{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:0 var(--pad) clamp(46px,7vh,86px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px}
-.showcase__count{position:absolute;z-index:3;right:var(--pad);top:clamp(90px,14vh,130px);font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.6)}
-@media(max-width:768px){.showcase{height:268vh}.showcase__body{flex-direction:column;align-items:flex-start}.showcase__shot--inset{padding:5svh clamp(18px,5vw,40px)}.showcase__shot--inset img{height:74svh}}
+/* ---------------------------------------------------------------------------
+   Project showcase — hba-style cover-stack. One pinned caption per project; the
+   lead image is full-bleed, each following image is smaller (contained) and slides
+   UP to COVER the previous, which stays behind dimmed — the soft overlap that reads
+   as a blend ("přelínání"). Motion layout (sticky + stacked absolute layers) is gated
+   on .js; without JS / reduced motion the images simply flow, caption pinned at the foot. */
+.showcase{position:relative;background:var(--dark);color:#fff}
+.showcase__sticky{position:relative;display:block;color:inherit;background:var(--dark)}
+.showcase__media{position:relative}
+.showcase__shot{position:relative;display:block;margin:0}
+.showcase__shot img{display:block;width:100%;height:auto;object-fit:cover}
+.showcase__shot--inset{padding:6svh clamp(28px,8vw,120px)}
+.showcase__scrim{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,rgba(8,6,4,.34),rgba(8,6,4,0)26%,rgba(8,6,4,0)50%,rgba(8,6,4,.84))}
+.showcase__count{position:absolute;z-index:5;right:var(--pad);top:clamp(90px,14vh,130px);font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.62)}
+.showcase__body{position:absolute;z-index:5;left:0;right:0;bottom:0;padding:0 var(--pad) clamp(46px,7vh,86px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px}
+/* motion layout: pin the viewport, stack the images as full-screen layers */
+.js .showcase{height:240vh}
+.js .showcase__sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+.js .showcase__media{position:absolute;inset:0}
+.js .showcase__shot{position:absolute;inset:0;display:grid;place-items:center;will-change:transform}
+.js .showcase__shot--lead{padding:0}
+.js .showcase__shot--lead img{width:100%;height:100svh}
+.js .showcase__shot--inset{padding:0 0 13svh;background:rgba(9,11,10,.64)}
+.js .showcase__shot--inset img{width:min(76vw,1180px);height:62svh}
+@media(max-width:768px){
+  .js .showcase{height:220vh}
+  .js .showcase__shot--inset{padding:0 0 16svh}
+  .js .showcase__shot--inset img{width:88vw;height:54svh}
+  .showcase__body{flex-direction:column;align-items:flex-start}
+}
 
 /* panels (day-in-life / lifestyle) */
 .panel{position:relative;height:100svh;min-height:600px;overflow:hidden}
