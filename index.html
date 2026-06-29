@@ -182,6 +182,16 @@
   .prolog p{margin:0 auto 18px}
   .prolog .stats{margin-top:62px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:32px 0}
   @media(max-width:520px){.prolog .stats{grid-template-columns:1fr;gap:24px}}
+  /* WHO WE ARE - brand-level intro (light editorial, main style) */
+  .whoweare{background:var(--paper-warm);padding:clamp(80px,11vw,150px) var(--pad-x);border-bottom:1px solid var(--rule)}
+  .whoweare__inner{max-width:1180px;margin:0 auto}
+  .whoweare__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+  .whoweare h2{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,4.4vw,62px);line-height:1.06;letter-spacing:.01em;color:var(--ink);max-width:16ch}
+  .whoweare__body p{font-family:var(--f-body);font-weight:300;font-size:clamp(15px,1.1vw,18px);line-height:1.7;color:var(--ink);margin-bottom:16px;max-width:52ch}
+  .whoweare__body p.lede{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(20px,2vw,28px);line-height:1.4;margin-bottom:24px}
+  .whoweare__img{margin-top:clamp(40px,6vw,80px);width:100%;aspect-ratio:16 / 7;overflow:hidden}
+  .whoweare__img img{width:100%;height:100%;object-fit:cover}
+  @media(max-width:820px){.whoweare__grid{grid-template-columns:1fr;gap:22px}.whoweare__img{aspect-ratio:16 / 10}}
   .stats div{display:flex;flex-direction:column;align-items:center;gap:6px}
   .stats strong{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3.6vw,44px)}
   .stats span{font-family:var(--f-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--driftwood)}
@@ -930,6 +940,23 @@
   </div>
   <div class="hero__scroll">Scroll</div>
 </header>
+
+<!-- WHO WE ARE - brand-level intro (DRAFT copy, Bára dodá finální) -->
+<section class="whoweare">
+  <div class="whoweare__inner">
+    <div class="whoweare__grid">
+      <div>
+        <div class="eyebrow">Who we are</div>
+        <h2>Premium development, in places that already have a soul.</h2>
+      </div>
+      <div class="whoweare__body">
+        <p class="lede">Ananta is a brand for premium development in Bali's most considered locations, joining the art of architecture with sustainability and the genius loci of each place.</p>
+        <p>We build where the land already has character, and design to honour it. Two projects today, one brand, conceived, built, and operated end to end.</p>
+      </div>
+    </div>
+    <div class="whoweare__img"><img src="/villas/render-facade.jpg" alt="Ananta architecture" loading="lazy"></div>
+  </div>
+</section>
 
 <!-- PROLOG -->
 <section class="prolog">
