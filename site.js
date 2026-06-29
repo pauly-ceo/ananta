@@ -83,7 +83,15 @@
       clipPath: "inset(0% 0% 0% 0%)", duration: 1.3, ease: "power3.out",
       scrollTrigger: { trigger: el, start: "top 82%" }
     });
-    if (img) gsap.to(img, { scale: 1, duration: 1.7, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 82%" } });
+    if (img) {
+      // cinematic parallax: image sits slightly oversized and drifts as the section
+      // passes through the viewport (hba-style depth). Desktop only (gated above by motion IIFE).
+      gsap.set(img, { scale: 1.16 });
+      gsap.fromTo(img, { yPercent: -5 }, {
+        yPercent: 5, ease: "none",
+        scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true }
+      });
+    }
   });
 
   // ---------- project showcase: crossfade stacked images while a sticky panel holds ----------
