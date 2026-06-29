@@ -94,14 +94,21 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .project__cta{display:inline-flex;align-items:center;gap:10px;margin-top:14px;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:5px}
 
 /* project showcase: tall section, sticky panel, images cross-fade on scroll */
-.showcase{position:relative;height:300vh}
-.showcase__sticky{position:sticky;top:0;height:100svh;display:block;overflow:hidden;color:#fff}
-.showcase__media{position:absolute;inset:0}
-.showcase__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
-.showcase__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,4,.2),rgba(8,6,4,0)35%,rgba(8,6,4,.8))}
-.showcase__body{position:absolute;left:0;right:0;bottom:0;padding:0 var(--pad) clamp(46px,7vh,86px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px}
-.showcase__count{position:absolute;right:var(--pad);top:clamp(90px,14vh,130px);font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.6)}
-@media(max-width:768px){.showcase{height:220vh}.showcase__body{flex-direction:column;align-items:flex-start}}
+/* Project showcase: pinned caption + vertically scrolling image strip (hba style).
+   .showcase__media is a tall strip translated up by GSAP; lead is full-bleed, the rest
+   are inset (smaller, dark margins). Caption (.showcase__body) is pinned in the sticky viewport. */
+.showcase{position:relative;height:300vh;background:var(--dark)}
+.showcase__sticky{position:sticky;top:0;height:100svh;display:block;overflow:hidden;color:#fff;background:var(--dark)}
+.showcase__media{position:absolute;left:0;right:0;top:0;will-change:transform}
+.showcase__shot{display:block}
+.showcase__shot img{display:block;width:100%;object-fit:cover}
+.showcase__shot--lead img{height:100svh}
+.showcase__shot--inset{padding:7svh clamp(50px,9vw,170px)}
+.showcase__shot--inset img{height:86svh}
+.showcase__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(8,6,4,.34),rgba(8,6,4,0)28%,rgba(8,6,4,0)56%,rgba(8,6,4,.82))}
+.showcase__body{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:0 var(--pad) clamp(46px,7vh,86px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px}
+.showcase__count{position:absolute;z-index:3;right:var(--pad);top:clamp(90px,14vh,130px);font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.6)}
+@media(max-width:768px){.showcase{height:268vh}.showcase__body{flex-direction:column;align-items:flex-start}.showcase__shot--inset{padding:5svh clamp(18px,5vw,40px)}.showcase__shot--inset img{height:74svh}}
 
 /* panels (day-in-life / lifestyle) */
 .panel{position:relative;height:100svh;min-height:600px;overflow:hidden}
