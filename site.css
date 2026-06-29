@@ -105,18 +105,24 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .showcase__shot{position:relative;display:block;margin:0}
 .showcase__shot img{display:block;width:100%;height:auto;object-fit:cover}
 .showcase__shot--inset{padding:6svh clamp(28px,8vw,120px)}
+.showcase__dim{display:none}
 .showcase__scrim{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,rgba(8,6,4,.34),rgba(8,6,4,0)26%,rgba(8,6,4,0)50%,rgba(8,6,4,.84))}
 .showcase__count{position:absolute;z-index:5;right:var(--pad);top:clamp(90px,14vh,130px);font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.62)}
 .showcase__body{position:absolute;z-index:5;left:0;right:0;bottom:0;padding:0 var(--pad) clamp(46px,7vh,86px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px}
-/* motion layout: pin the viewport, stack the images as full-screen layers */
+/* motion layout: pin the viewport, stack the images as full-screen layers.
+   Each inset's figure is transparent and only its contained image rides up; the
+   dimming is a separate, NON-moving layer (.showcase__dim) that fades in over the
+   scene behind it — so the background darkens in place (like hba) instead of a hard
+   shadow edge sliding up with the image. */
 .js .showcase{height:240vh}
 .js .showcase__sticky{position:sticky;top:0;height:100svh;overflow:hidden}
 .js .showcase__media{position:absolute;inset:0}
 .js .showcase__shot{position:absolute;inset:0;display:grid;place-items:center;will-change:transform}
 .js .showcase__shot--lead{padding:0}
 .js .showcase__shot--lead img{width:100%;height:100svh}
-.js .showcase__shot--inset{padding:0 0 13svh;background:rgba(9,11,10,.64)}
+.js .showcase__shot--inset{padding:0 0 13svh;background:transparent}
 .js .showcase__shot--inset img{width:min(76vw,1180px);height:62svh}
+.js .showcase__dim{display:block;position:absolute;inset:0;background:#080a09;opacity:0;pointer-events:none}
 @media(max-width:768px){
   .js .showcase{height:220vh}
   .js .showcase__shot--inset{padding:0 0 16svh}

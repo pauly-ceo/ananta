@@ -96,20 +96,25 @@
 
   // ---------- project showcase: hba-style cover-stack ----------
   // One pinned caption per project. The lead image sits full-bleed; each following
-  // (smaller, contained) image slides UP from below to COVER the previous one, which
-  // stays behind dimmed — the soft overlap that reads as a blend. The covers run back to
-  // back at one constant pace (no holds/dwells). scrub:true ties the motion 1:1 to the
-  // (Lenis-smoothed) scroll so it tracks the wheel exactly — like hba — instead of easing
-  // toward a target, which is what made an image look like it stalled and crept back.
+  // (smaller, contained) image rides UP from below to cover it. Only the contained image
+  // moves — the dimming is a separate layer (.showcase__dim) that fades IN PLACE over the
+  // scene behind, so the background darkens like hba rather than a hard shadow edge sliding
+  // up with the image. scrub:true ties it 1:1 to the (Lenis-smoothed) scroll so it tracks
+  // the wheel exactly — no easing toward a target, which is what made it look like it crept back.
   gsap.utils.toArray("[data-showcase]").forEach(function (sc) {
     var insets = gsap.utils.toArray(sc.querySelectorAll(".showcase__shot--inset"));
+    var dims = gsap.utils.toArray(sc.querySelectorAll(".showcase__dim"));
     if (!insets.length) return;
     gsap.set(insets, { yPercent: 101 });
+    gsap.set(dims, { opacity: 0 });
     var tl = gsap.timeline({
       defaults: { ease: "none", duration: 1 },
       scrollTrigger: { trigger: sc, start: "top top", end: "bottom bottom", scrub: true, invalidateOnRefresh: true }
     });
-    insets.forEach(function (shot) { tl.to(shot, { yPercent: 0 }); });
+    insets.forEach(function (shot, i) {
+      tl.to(shot, { yPercent: 0 }, i);                          // contained image rides up
+      if (dims[i]) tl.to(dims[i], { opacity: 0.62 }, i);        // scene behind darkens in place, synced
+    });
   });
 
   // ---------- text + fade reveals (after fonts so line-breaks measure right) ----------
