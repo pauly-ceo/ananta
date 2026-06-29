@@ -60,6 +60,18 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .hero__wordmark{display:block;width:min(62vw,720px);aspect-ratio:782.5 / 153;background-color:#fff;-webkit-mask:url(/ananta-wordmark.svg) center/contain no-repeat;mask:url(/ananta-wordmark.svg) center/contain no-repeat;filter:drop-shadow(0 3px 32px rgba(10,8,6,.42));margin-bottom:clamp(18px,2.4vh,28px)}
 .hero__tag{font-family:var(--serif);font-weight:340;font-size:clamp(19px,2.2vw,30px);line-height:1.22;letter-spacing:-.01em;max-width:22ch;color:#fff;text-shadow:0 2px 28px rgba(10,8,6,.46)}
 .hero__sub{margin-top:26px;font-weight:300;font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.8);max-width:36ch}
+/* landing hero — 3-layer cut-out parallax: bg photo (far) / wordmark+tagline (mid) / fg palms cutout (near).
+   At rest the fg PNG sits exactly over the same palms in the bg, so it reads as one photo; on scroll the
+   layers drift at different rates and the wordmark is sandwiched between them (osmo-style depth). Scoped to
+   .hero--cutout so the shared .hero/.hero__inner/.hero__scrim used by the subpages stay untouched. */
+.hero--cutout{background:#8fb6c2}
+.hero__layer{position:absolute;inset:0;will-change:transform}
+.hero__layer img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.25)}
+.hero--cutout .hero__bg{z-index:1}
+.hero--cutout .hero__fg{z-index:4;pointer-events:none}
+.hero--cutout .hero__scrim{z-index:2;background:radial-gradient(132% 84% at 50% 45%,rgba(8,18,24,0) 30%,rgba(8,18,24,.34) 76%,rgba(8,18,24,.62) 100%),linear-gradient(180deg,rgba(8,18,24,.34) 0%,rgba(8,18,24,.05) 30%,rgba(8,18,24,.12) 64%,rgba(8,18,24,.5) 100%)}
+.hero--cutout .hero__inner{z-index:3;justify-content:flex-end;align-items:center;text-align:center;padding-bottom:clamp(92px,15vh,165px)}
+.hero--cutout .hero__tag{max-width:24ch}
 .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);color:rgba(255,255,255,.7);font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
 .scrollcue span{width:1px;height:42px;background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,0));animation:cue 2.4s var(--ease) infinite}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}

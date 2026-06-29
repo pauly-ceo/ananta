@@ -75,6 +75,23 @@
     });
   }
 
+  // ---------- landing hero: 3-layer cut-out parallax (bg photo / wordmark / fg palms) ----------
+  // At rest the layers are aligned (reads as one photo). On scroll they drift at different rates:
+  // background lags (far), the wordmark/tagline rise, the foreground palms rise fastest (near), so the
+  // text ends up sandwiched between the palm cutout and its background copy — osmo-style depth.
+  var heroCut = document.querySelector(".hero--cutout");
+  if (heroCut) {
+    var hBg = heroCut.querySelector(".hero__bg");
+    var hFg = heroCut.querySelector(".hero__fg");
+    var hInner = heroCut.querySelector(".hero__inner");
+    var heroTl = gsap.timeline({
+      scrollTrigger: { trigger: heroCut, start: "top top", end: "bottom top", scrub: true }
+    });
+    if (hBg) heroTl.fromTo(hBg, { yPercent: 0 }, { yPercent: 6, ease: "none" }, 0);
+    if (hInner) heroTl.fromTo(hInner, { yPercent: 0 }, { yPercent: -7, ease: "none" }, 0);
+    if (hFg) heroTl.fromTo(hFg, { yPercent: 0 }, { yPercent: -13, ease: "none" }, 0);
+  }
+
   // ---------- clip-path image reveal ----------
   gsap.utils.toArray("[data-clip]").forEach(function (el) {
     var img = el.querySelector("img");
