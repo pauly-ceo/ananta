@@ -193,3 +193,22 @@
     revealHero();
   }
 })();
+
+/* lifestyle moments — hover swaps the revealed image (desktop). Plain interaction, always runs
+   (independent of motion prefs / GSAP); on mobile each item shows its own thumb, no JS needed. */
+(function () {
+  "use strict";
+  var list = document.querySelector("[data-moments]");
+  if (!list) return;
+  var items = Array.prototype.slice.call(list.querySelectorAll(".moments__item"));
+  var media = document.querySelector(".moments__media");
+  var shots = media ? Array.prototype.slice.call(media.querySelectorAll(".moments__shot")) : [];
+  function activate(i) {
+    items.forEach(function (it, j) { it.classList.toggle("is-active", j === i); });
+    shots.forEach(function (sh, j) { sh.classList.toggle("is-active", j === i); });
+  }
+  items.forEach(function (item, i) {
+    item.addEventListener("mouseenter", function () { activate(i); });
+    item.addEventListener("focusin", function () { activate(i); });
+  });
+})();

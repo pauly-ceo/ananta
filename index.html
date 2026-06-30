@@ -176,34 +176,37 @@
   </a>
 </section>
 
-<!-- LIFESTYLE — a day on the island -->
-<section class="panel">
-  <div class="panel__media" data-clip><img src="/villas/render-pool.jpg" alt="The cliff pool at first light" loading="lazy"></div>
-  <div class="panel__scrim"></div>
-  <div class="panel__cap">
-    <p class="panel__time" data-reveal>06:30 · First light</p>
-    <h2 class="panel__title display" data-split>The sea before anyone else</h2>
-    <p class="panel__sensory sensory" data-reveal>The tide is out at Bingin. The pool holds the warmth of last night. No one is awake but you, and the water.</p>
-  </div>
-</section>
-
-<section class="panel">
-  <div class="panel__media" data-clip><img src="/beachclub-amber.jpg" alt="The beach club in the gold hour" loading="lazy"></div>
-  <div class="panel__scrim"></div>
-  <div class="panel__cap">
-    <p class="panel__time" data-reveal>16:40 · The gold hour</p>
-    <h2 class="panel__title display" data-split>When the light turns to amber</h2>
-    <p class="panel__sensory sensory" data-reveal>Frangipani on the path. The afternoon goes amber, then rose. Somewhere below, the last longboards come in.</p>
-  </div>
-</section>
-
-<section class="panel">
-  <div class="panel__media" data-clip><img src="/villas/render-living.jpg" alt="The long table in the evening" loading="lazy"></div>
-  <div class="panel__scrim"></div>
-  <div class="panel__cap">
-    <p class="panel__time" data-reveal>20:00 · The long table</p>
-    <h2 class="panel__title display" data-split>The part the brochure never sold</h2>
-    <p class="panel__sensory sensory" data-reveal>Dinner under the open roof, salt still on your skin. Nobody is checking the time. This is the part you came for.</p>
+<!-- LIFESTYLE — a day on the island, compact hover-reveal (text list left, image swaps on hover) -->
+<section class="moments" aria-label="A day at Ananta">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>A day here</p>
+    <div class="moments__grid">
+      <ul class="moments__list" data-moments>
+        <li class="moments__item is-active" data-i="0">
+          <span class="moments__time">06:30 · First light</span>
+          <h3 class="moments__title display">The sea, before anyone else</h3>
+          <p class="moments__copy sensory">The tide is out at Bingin. The pool holds the warmth of last night. No one is awake but you, and the water.</p>
+          <span class="moments__thumb"><img src="/villas/render-pool.jpg" alt="The cliff pool at first light" loading="lazy"></span>
+        </li>
+        <li class="moments__item" data-i="1">
+          <span class="moments__time">16:40 · The gold hour</span>
+          <h3 class="moments__title display">When the light turns to amber</h3>
+          <p class="moments__copy sensory">Frangipani on the path. The afternoon goes amber, then rose. Somewhere below, the last longboards come in.</p>
+          <span class="moments__thumb"><img src="/beachclub-amber.jpg" alt="The beach club in the gold hour" loading="lazy"></span>
+        </li>
+        <li class="moments__item" data-i="2">
+          <span class="moments__time">20:00 · The long table</span>
+          <h3 class="moments__title display">Dinner that runs late</h3>
+          <p class="moments__copy sensory">Dinner under the open roof, salt still on your skin. Nobody is checking the time. This is the part you came for.</p>
+          <span class="moments__thumb"><img src="/villas/render-living.jpg" alt="The long table in the evening" loading="lazy"></span>
+        </li>
+      </ul>
+      <div class="moments__media" aria-hidden="true">
+        <figure class="moments__shot is-active"><img src="/villas/render-pool.jpg" alt="" loading="lazy"></figure>
+        <figure class="moments__shot"><img src="/beachclub-amber.jpg" alt="" loading="lazy"></figure>
+        <figure class="moments__shot"><img src="/villas/render-living.jpg" alt="" loading="lazy"></figure>
+      </div>
+    </div>
   </div>
 </section>
 
