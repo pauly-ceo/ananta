@@ -11,61 +11,50 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/hanken-grotesk-normal.woff2?v=2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
 <style>
-:root{
-  --cream:#F1EEE7;--cream2:#E9E4DA;--ink:#211E1A;--soft:#8C8275;--line:#D8D1C5;
-  --serif:'Cormorant Garamond',Georgia,serif;--body:'EB Garamond',Georgia,serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;font-size:18px;line-height:1.62;overflow-x:hidden}
-a{color:inherit}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line);
-  display:flex;align-items:center;gap:18px;padding:0 clamp(18px,3vw,40px);height:58px}
-.brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:500;font-size:19px;letter-spacing:.16em;text-transform:uppercase}
-.brand-seal,.brand-word{display:inline-block;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;mask-mode:alpha}
-.brand-seal{-webkit-mask-image:url(/ananta-seal.png);mask-image:url(/ananta-seal.png);width:22px;height:22px;flex:none}
-.brand-word{-webkit-mask-image:url(/ananta-wordmark.svg);mask-image:url(/ananta-wordmark.svg);aspect-ratio:782.5 / 153;height:15px;flex:none}
-.navback{font-family:var(--body);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-left:auto}
+/* Privacy — same brand system as the site: self-hosted Hanken Grotesk + warm-neutral tokens
+   from /site.css (was Cormorant/EB Garamond on Google Fonts; now on-brand and cookie-free). */
+body{font-size:18px;line-height:1.62}
+.docnav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;padding:0 clamp(18px,3vw,40px);height:60px}
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand-seal,.brand-word{display:inline-block;background-color:var(--ink);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain}
+.brand-seal{-webkit-mask-image:url(/ananta-seal.png);mask-image:url(/ananta-seal.png);width:30px;height:30px;flex:none}
+.brand-word{-webkit-mask-image:url(/ananta-wordmark.svg);mask-image:url(/ananta-wordmark.svg);aspect-ratio:782.5 / 153;height:14px;flex:none}
+.navback{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-left:auto;transition:color .25s}
 .navback:hover{color:var(--ink)}
 
-.doc{max-width:820px;margin:0 auto;padding:calc(58px + clamp(48px,8vh,96px)) clamp(20px,5vw,40px) clamp(70px,12vh,130px)}
-.doc__eyebrow{font-family:var(--body);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:18px}
-.doc h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,56px);line-height:1.05;letter-spacing:.02em;margin-bottom:14px}
-.doc__intro-sub{font-family:var(--body);font-style:italic;font-size:17px;color:var(--soft);line-height:1.5;margin-bottom:34px}
-.doc__lead{font-size:18px;margin-bottom:8px}
-.doc h2{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.6vw,30px);letter-spacing:.01em;margin:44px 0 14px;padding-top:8px}
-.doc p{margin-bottom:14px}
+.doc{max-width:820px;margin:0 auto;padding:calc(60px + clamp(48px,8vh,96px)) clamp(20px,5vw,40px) clamp(70px,12vh,130px)}
+.doc__eyebrow{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--soft);margin-bottom:18px}
+.doc h1{font-family:var(--serif);font-weight:450;font-size:clamp(34px,5vw,58px);line-height:1.04;letter-spacing:-.015em;margin-bottom:16px}
+.doc__intro-sub{font-family:var(--serif);font-weight:330;font-size:clamp(18px,2vw,22px);color:var(--soft);line-height:1.42;margin-bottom:36px}
+.doc__lead{font-size:18px;margin-bottom:8px;color:#473f36}
+.doc h2{font-family:var(--serif);font-weight:450;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.01em;margin:46px 0 14px}
+.doc p{margin-bottom:14px;color:#473f36}
 .doc p+p{margin-top:0}
-.doc strong{font-weight:500}
-.doc dl{margin:10px 0 14px}
-.doc dt{font-weight:500;font-family:var(--serif);font-size:20px}
-.doc dd{margin:2px 0 16px}
-.doc ul{margin:6px 0 14px;padding-left:22px}
+.doc strong{font-weight:600;color:var(--ink)}
+.doc ul{margin:6px 0 14px;padding-left:22px;color:#473f36}
 .doc li{margin-bottom:7px}
 .doc table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:16px}
-.doc th,.doc td{text-align:left;vertical-align:top;padding:13px 14px;border:1px solid var(--line)}
-.doc th{font-family:var(--body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:400;background:var(--cream2)}
-.doc td .label{font-weight:500}
-.doc__contact{background:var(--cream2);padding:22px 24px;margin:8px 0 14px;line-height:1.7}
+.doc th,.doc td{text-align:left;vertical-align:top;padding:13px 14px;border:1px solid var(--line);color:#473f36}
+.doc th{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:500;background:var(--cream-2)}
+.doc td .label{font-weight:600;color:var(--ink)}
+.doc__contact{background:var(--cream-2);padding:22px 24px;margin:8px 0 14px;line-height:1.7}
 .doc__contact div{display:flex;gap:10px;flex-wrap:wrap}
 .doc__contact .k{color:var(--soft);min-width:210px}
-.doc a[href^="mailto"],.doc a[href^="http"]{border-bottom:1px solid var(--line)}
+.doc a[href^="mailto"],.doc a[href^="http"],.doc a[href^="tel"]{border-bottom:1px solid var(--line)}
 .doc a:hover{border-bottom-color:var(--ink)}
 
-footer{border-top:1px solid var(--line);padding:32px clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;font-family:var(--body);font-size:12.5px;letter-spacing:.04em;color:var(--soft)}
-footer .fbrand{font-family:var(--serif);font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.docfoot{border-top:1px solid var(--line);padding:32px clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;color:var(--soft)}
+.docfoot .fbrand{display:inline-block;height:14px;width:calc(14px * 782.5 / 153);background-color:var(--ink);-webkit-mask:url(/ananta-wordmark.svg) left center/contain no-repeat;mask:url(/ananta-wordmark.svg) left center/contain no-repeat}
+.docfoot a{border-bottom:1px solid var(--line)}.docfoot a:hover{border-bottom-color:var(--ink)}
 @media(max-width:560px){.doc__contact .k{min-width:0}.doc table{font-size:15px}.doc th,.doc td{padding:10px}}
 </style>
 </head>
 <body>
 
-<nav>
+<nav class="docnav">
   <a class="brand" href="/"><span class="brand-seal" aria-hidden="true"></span><span class="brand-word" aria-hidden="true"></span><span class="sr-only">Ananta</span></a>
   <a class="navback" href="/">← Back to Ananta</a>
 </nav>
@@ -147,8 +136,8 @@ footer .fbrand{font-family:var(--serif);font-size:16px;letter-spacing:.2em;text-
   <p>This policy is effective from 27 June 2026. The controller is entitled to update the wording from time to time; the current version is always available on the Ananta project website.</p>
 </main>
 
-<footer>
-  <span class="fbrand">Ananta</span>
+<footer class="docfoot">
+  <span class="fbrand" role="img" aria-label="Ananta"></span>
   <span>© 2026 The Personal Resorts BALI s.r.o. · <a href="/">Back to Ananta</a></span>
 </footer>
 
